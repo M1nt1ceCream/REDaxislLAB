@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
-  <rect width="320" height="80" rx="4" fill="#E63946"/>
-  <text x="10" y="66" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="62" fill="#000">RED</text>
-  <text x="170" y="42" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="26" fill="#000" letter-spacing="4">SHIFT</text>
-  <text x="170" y="68" font-family="Inter,Arial,sans-serif" font-weight="400" font-size="22" fill="#000" letter-spacing="2">LAB</text>
-</svg>
