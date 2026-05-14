@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Исследования — RED shift LAB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition" id="pageTransition">
+        <img src="assets/logo.png" alt="RED shift LAB" class="page-transition__logo">
+    </div>
+
+<!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="#" class="header__logo">
+                <img src="assets/logo.png" alt="RED shift LAB" class="header__logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <a href="index.html" class="header__link">Главная</a>
+                <a href="services.html" class="header__link">Наши услуги</a>
+                <a href="research.html" class="header__link">Исследования</a>
+                <a href="contacts.html" class="header__link">Контакты</a>
+            </nav>
+            <button class="header__burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-header__title">Наши <span class="text-accent">исследования</span></h1>
+    </div>
+
+<!-- RESEARCH CAROUSEL -->
+    <section class="research" id="research">
+        <div class="section__container">
+            
+            <p class="section__subtitle">Актуальные отчёты и аналитика технологических рынков</p>
+            <div class="carousel" id="researchCarousel">
+                <button class="carousel__btn carousel__btn--prev" data-dir="-1" aria-label="Назад">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <div class="carousel__track-wrapper">
+                    <div class="carousel__track" id="researchTrack">
+
+                        <div class="carousel__slide">
+                            <div class="research-card glass-card">
+                                <div class="research-card__tag">AI / ML</div>
+                                <h3 class="research-card__title">Рынок генеративного ИИ в&nbsp;России: тренды 2026</h3>
+                                <p class="research-card__text">Анализ ключевых игроков, объёма инвестиций и прогнозов развития рынка генеративного искусственного интеллекта.</p>
+                                <span class="research-card__date">Апрель 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel__slide">
+                            <div class="research-card glass-card">
+                                <div class="research-card__tag">Кибербезопасность</div>
+                                <h3 class="research-card__title">Угрозы и защита: ландшафт кибербезопасности</h3>
+                                <p class="research-card__text">Исследование актуальных векторов атак, эффективности защитных решений и прогнозов на ближайшие 3 года.</p>
+                                <span class="research-card__date">Март 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel__slide">
+                            <div class="research-card glass-card">
+                                <div class="research-card__tag">Cloud</div>
+                                <h3 class="research-card__title">Облачная инфраструктура: миграция и&nbsp;оптимизация</h3>
+                                <p class="research-card__text">Сравнительный анализ облачных платформ, стоимость владения и лучшие практики миграции.</p>
+                                <span class="research-card__date">Февраль 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel__slide">
+                            <div class="research-card glass-card">
+                                <div class="research-card__tag">Финтех</div>
+                                <h3 class="research-card__title">Цифровые платежи и&nbsp;блокчейн-решения</h3>
+                                <p class="research-card__text">Обзор инновационных платёжных систем, CBDC и интеграции блокчейн-технологий в финансовый сектор.</p>
+                                <span class="research-card__date">Январь 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel__slide">
+                            <div class="research-card glass-card">
+                                <div class="research-card__tag">IoT</div>
+                                <h3 class="research-card__title">Промышленный IoT: цифровизация производства</h3>
+                                <p class="research-card__text">Анализ внедрения IoT-решений на предприятиях, ROI кейсы и барьеры масштабирования.</p>
+                                <span class="research-card__date">Декабрь 2025</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="carousel__btn carousel__btn--next" data-dir="1" aria-label="Вперёд">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <img src="assets/logo.png" alt="RED shift LAB" class="footer__logo">
+                <p class="footer__desc">IT-исследования и аналитика для бизнеса</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4>Навигация</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="services.html">Наши услуги</a>
+                    <a href="research.html">Исследования</a>
+                </div>
+                <div class="footer__col">
+                    <h4>Компания</h4>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span>&copy; 2026 RED shift LAB. Все права защищены.</span>
+            </div>
+        </div>
+    </footer>
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner__bg"></div>
+        <div class="cookie-banner__glass">
+            <div class="cookie-banner__text">
+                <p>Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="btn btn--outline" id="declineCookies">Отказаться</button>
+                <button class="btn btn--primary" id="acceptCookies">Принять</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=4"></script>
+
+</body>
+</html>
