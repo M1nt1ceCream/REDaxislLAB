@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-page="research">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=9">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 <body>
+
+    <!-- LANGUAGE PICKER OVERLAY -->
+    <div class="lang-overlay" id="langOverlay">
+        <div class="lang-picker glass-card">
+            <img src="assets/logo.png" alt="RED AXIS" class="lang-picker__logo">
+            <p class="lang-picker__label">Select language / Выберите язык</p>
+            <div class="lang-selector">
+                <div class="lang-selector__btn">
+                    <span>Выбрать язык</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <div class="lang-selector__drop">
+                    <div class="lang-option" data-lang="ru">Русский</div>
+                    <div class="lang-option" data-lang="en">English</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- PAGE TRANSITION OVERLAY -->
     <div class="page-transition" id="pageTransition">
@@ -22,27 +46,45 @@
             <a href="#" class="header__logo">
                 <img src="assets/logo.png" alt="RED AXIS" class="header__logo-img">
             </a>
+            <div class="header__right">
+                <button class="theme-toggle theme-toggle--header" aria-label="Переключить тему">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <div class="theme-toggle__slider"></div>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <div class="lang-switch" id="headerLangSwitch">
+                    <button class="lang-switch__btn" id="headerLangBtn">
+                        <span id="headerLangLabel">RU</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-switch__drop" id="headerLangDropdown">
+                        <div class="lang-option" data-lang="ru">Русский</div>
+                        <div class="lang-option" data-lang="en">English</div>
+                    </div>
+                </div>
+                <div class="header__lang-divider"></div>
+                <button class="header__burger" id="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
             <nav class="header__nav" id="nav">
-                <a href="index.html" class="header__link">Главная</a>
-                <a href="services.html" class="header__link">Наши услуги</a>
-                <a href="research.html" class="header__link">Исследования</a>
-                <a href="contacts.html" class="header__link">Контакты</a>
+                <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
+                <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
+                <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
             </nav>
-            <button class="header__burger" id="burger" aria-label="Меню">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </header>
 
     <div class="page-header">
-        <h1 class="page-header__title">Наши <span class="text-accent">исследования</span></h1>
+        <h1 class="page-header__title" data-i18n-html="page.research.h">Наши <span class="text-accent">исследования</span></h1>
     </div>
 
 <!-- RESEARCH CAROUSEL -->
     <section class="research" id="research">
         <div class="section__container">
-            
-            <p class="section__subtitle">Актуальные отчёты и аналитика технологических рынков</p>
+
+            <p class="section__subtitle" data-i18n="page.research.sub">Актуальные отчёты и аналитика технологических рынков</p>
             <div class="carousel" id="researchCarousel">
                 <button class="carousel__btn carousel__btn--prev" data-dir="-1" aria-label="Назад">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
@@ -52,46 +94,46 @@
 
                         <div class="carousel__slide">
                             <div class="research-card glass-card">
-                                <div class="research-card__tag">AI / ML</div>
-                                <h3 class="research-card__title">Рынок генеративного ИИ в&nbsp;России: тренды 2026</h3>
-                                <p class="research-card__text">Анализ ключевых игроков, объёма инвестиций и прогнозов развития рынка генеративного искусственного интеллекта.</p>
-                                <span class="research-card__date">Апрель 2026</span>
+                                <div class="research-card__tag" data-i18n="res.1.tag">AI / ML</div>
+                                <h3 class="research-card__title" data-i18n="res.1.title">Рынок генеративного ИИ в&nbsp;России: тренды 2026</h3>
+                                <p class="research-card__text" data-i18n="res.1.text">Анализ ключевых игроков, объёма инвестиций и прогнозов развития рынка генеративного искусственного интеллекта.</p>
+                                <span class="research-card__date" data-i18n="res.1.date">Апрель 2026</span>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="research-card glass-card">
-                                <div class="research-card__tag">Кибербезопасность</div>
-                                <h3 class="research-card__title">Угрозы и защита: ландшафт кибербезопасности</h3>
-                                <p class="research-card__text">Исследование актуальных векторов атак, эффективности защитных решений и прогнозов на ближайшие 3 года.</p>
-                                <span class="research-card__date">Март 2026</span>
+                                <div class="research-card__tag" data-i18n="res.2.tag">Кибербезопасность</div>
+                                <h3 class="research-card__title" data-i18n="res.2.title">Угрозы и защита: ландшафт кибербезопасности</h3>
+                                <p class="research-card__text" data-i18n="res.2.text">Исследование актуальных векторов атак, эффективности защитных решений и прогнозов на ближайшие 3 года.</p>
+                                <span class="research-card__date" data-i18n="res.2.date">Март 2026</span>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="research-card glass-card">
-                                <div class="research-card__tag">Cloud</div>
-                                <h3 class="research-card__title">Облачная инфраструктура: миграция и&nbsp;оптимизация</h3>
-                                <p class="research-card__text">Сравнительный анализ облачных платформ, стоимость владения и лучшие практики миграции.</p>
-                                <span class="research-card__date">Февраль 2026</span>
+                                <div class="research-card__tag" data-i18n="res.3.tag">Cloud</div>
+                                <h3 class="research-card__title" data-i18n="res.3.title">Облачная инфраструктура: миграция и&nbsp;оптимизация</h3>
+                                <p class="research-card__text" data-i18n="res.3.text">Сравнительный анализ облачных платформ, стоимость владения и лучшие практики миграции.</p>
+                                <span class="research-card__date" data-i18n="res.3.date">Февраль 2026</span>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="research-card glass-card">
-                                <div class="research-card__tag">Финтех</div>
-                                <h3 class="research-card__title">Цифровые платежи и&nbsp;блокчейн-решения</h3>
-                                <p class="research-card__text">Обзор инновационных платёжных систем, CBDC и интеграции блокчейн-технологий в финансовый сектор.</p>
-                                <span class="research-card__date">Январь 2026</span>
+                                <div class="research-card__tag" data-i18n="res.4.tag">Финтех</div>
+                                <h3 class="research-card__title" data-i18n="res.4.title">Цифровые платежи и&nbsp;блокчейн-решения</h3>
+                                <p class="research-card__text" data-i18n="res.4.text">Обзор инновационных платёжных систем, CBDC и интеграции блокчейн-технологий в финансовый сектор.</p>
+                                <span class="research-card__date" data-i18n="res.4.date">Январь 2026</span>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="research-card glass-card">
-                                <div class="research-card__tag">IoT</div>
-                                <h3 class="research-card__title">Промышленный IoT: цифровизация производства</h3>
-                                <p class="research-card__text">Анализ внедрения IoT-решений на предприятиях, ROI кейсы и барьеры масштабирования.</p>
-                                <span class="research-card__date">Декабрь 2025</span>
+                                <div class="research-card__tag" data-i18n="res.5.tag">IoT</div>
+                                <h3 class="research-card__title" data-i18n="res.5.title">Промышленный IoT: цифровизация производства</h3>
+                                <p class="research-card__text" data-i18n="res.5.text">Анализ внедрения IoT-решений на предприятиях, ROI кейсы и барьеры масштабирования.</p>
+                                <span class="research-card__date" data-i18n="res.5.date">Декабрь 2025</span>
                             </div>
                         </div>
 
@@ -109,40 +151,49 @@
         <div class="footer__inner">
             <div class="footer__brand">
                 <img src="assets/logo.png" alt="RED AXIS" class="footer__logo">
-                <p class="footer__desc">IT-исследования и аналитика для бизнеса</p>
+                <p class="footer__desc" data-i18n="footer.desc">IT-исследования и аналитика для бизнеса</p>
             </div>
             <div class="footer__links">
                 <div class="footer__col">
-                    <h4>Навигация</h4>
-                    <a href="index.html">Главная</a>
-                    <a href="services.html">Наши услуги</a>
-                    <a href="research.html">Исследования</a>
+                    <h4 data-i18n="footer.nav">Навигация</h4>
+                    <a href="index.html" data-i18n="nav.home">Главная</a>
+                    <a href="services.html" data-i18n="nav.services">Наши услуги</a>
+                    <a href="research.html" data-i18n="nav.research">Исследования</a>
                 </div>
                 <div class="footer__col">
-                    <h4>Компания</h4>
-                    <a href="contacts.html">Контакты</a>
+                    <h4 data-i18n="footer.company">Компания</h4>
+                    <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <span>&copy; 2026 RED AXIS. Все права защищены.</span>
+            <div class="footer__bottom" style="display:flex; justify-content:space-between; align-items:center;">
+                <span data-i18n="footer.copy">&copy; 2026 RED AXIS. Все права защищены.</span>
+                <div class="theme-toggle-wrapper" style="margin-top:0;">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <div class="theme-toggle__slider"></div>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
+
     <!-- COOKIE BANNER -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-banner__bg"></div>
         <div class="cookie-banner__glass">
             <div class="cookie-banner__text">
-                <p>Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+                <p data-i18n="cookie.text">Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
             </div>
             <div class="cookie-banner__actions">
-                <button class="btn btn--outline" id="declineCookies">Отказаться</button>
-                <button class="btn btn--primary" id="acceptCookies">Принять</button>
+                <button class="btn btn--outline" id="declineCookies" data-i18n="cookie.decline">Отказаться</button>
+                <button class="btn btn--primary" id="acceptCookies" data-i18n="cookie.accept">Принять</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <script src="i18n.js?v=1"></script>
+    <script src="script.js?v=9"></script>
 
 </body>
 </html>

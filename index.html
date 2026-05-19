@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-page="index">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +8,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=9">
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 <body>
+
+    <!-- LANGUAGE PICKER OVERLAY -->
+    <div class="lang-overlay" id="langOverlay">
+        <div class="lang-picker glass-card">
+            <img src="assets/logo.png" alt="RED AXIS" class="lang-picker__logo">
+            <p class="lang-picker__label">Select language / Выберите язык</p>
+            <div class="lang-selector">
+                <div class="lang-selector__btn">
+                    <span>Выбрать язык</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <div class="lang-selector__drop">
+                    <div class="lang-option" data-lang="ru">Русский</div>
+                    <div class="lang-option" data-lang="en">English</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- PAGE TRANSITION OVERLAY -->
     <div class="page-transition" id="pageTransition">
         <img src="assets/logo.png" alt="RED AXIS" class="page-transition__logo">
     </div>
-
 
     <!-- HEADER -->
     <header class="header" id="header">
@@ -24,15 +46,33 @@
             <a href="#" class="header__logo">
                 <img src="assets/logo.png" alt="RED AXIS" class="header__logo-img">
             </a>
+            <div class="header__right">
+                <button class="theme-toggle theme-toggle--header" aria-label="Переключить тему">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <div class="theme-toggle__slider"></div>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <div class="lang-switch" id="headerLangSwitch">
+                    <button class="lang-switch__btn" id="headerLangBtn">
+                        <span id="headerLangLabel">RU</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-switch__drop" id="headerLangDropdown">
+                        <div class="lang-option" data-lang="ru">Русский</div>
+                        <div class="lang-option" data-lang="en">English</div>
+                    </div>
+                </div>
+                <div class="header__lang-divider"></div>
+                <button class="header__burger" id="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
             <nav class="header__nav" id="nav">
-                <a href="index.html" class="header__link">Главная</a>
-                <a href="services.html" class="header__link">Наши услуги</a>
-                <a href="research.html" class="header__link">Исследования</a>
-                <a href="contacts.html" class="header__link">Контакты</a>
+                <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
+                <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
+                <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
             </nav>
-            <button class="header__burger" id="burger" aria-label="Меню">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </header>
 
@@ -40,11 +80,11 @@
     <section class="hero" id="hero">
         <canvas class="hero__bg" id="heroCanvas"></canvas>
         <div class="hero__glass">
-            <h1 class="hero__title">Исследуем технологии.<span class="hero__accent">Формируем будущее.</span></h1>
-            <p class="hero__text">RED AXIS — исследовательская лаборатория, которая помогает компаниям принимать стратегические решения на основе глубокой аналитики технологических рынков, трендов и инноваций. Мы превращаем данные в конкурентное преимущество.</p>
+            <h1 class="hero__title"><span data-i18n="hero.title">Исследуем технологии.</span><span class="hero__accent" data-i18n="hero.accent">Формируем будущее.</span></h1>
+            <p class="hero__text" data-i18n="hero.text">RED AXIS — исследовательская лаборатория, которая помогает компаниям принимать стратегические решения на основе глубокой аналитики технологических рынков, трендов и инноваций. Мы превращаем данные в конкурентное преимущество.</p>
             <div class="hero__actions">
-                <a href="#contacts" class="btn btn--primary">Связаться с нами</a>
-                <a href="#research" class="btn btn--outline">Наши исследования</a>
+                <a href="#contacts" class="btn btn--primary" data-i18n="hero.btn.contact">Связаться с нами</a>
+                <a href="#research" class="btn btn--outline" data-i18n="hero.btn.research">Наши исследования</a>
             </div>
         </div>
     </section>
@@ -54,8 +94,8 @@
         <div class="section__container">
             <div class="advantages__header">
                 <div class="advantages__header-inner">
-                    <span class="advantages__eyebrow">философия</span>
-                    <h2 class="section__title"><span class="text-accent">ПОЧЕМУ</span> RED <span style="font-weight: 300;">AXIS</span>?</h2>
+                    <span class="advantages__eyebrow" data-i18n="adv.eyebrow">философия</span>
+                    <h2 class="section__title" data-i18n-html="adv.title"><span class="text-accent">ПОЧЕМУ</span> RED <span style="font-weight: 300;">AXIS</span>?</h2>
                 </div>
             </div>
             <div class="advantages__divider"></div>
@@ -65,53 +105,51 @@
                     <div class="advantage-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
                     </div>
-                    <h3 class="advantage-card__title">Глубокая экспертиза</h3>
-                    <p class="advantage-card__text">Более 10 лет опыта в исследовании IT-рынков. Наша команда — эксперты с академическим и индустриальным бэкграундом.</p>
+                    <h3 class="advantage-card__title" data-i18n="adv.1.title">Глубокая экспертиза</h3>
+                    <p class="advantage-card__text" data-i18n="adv.1.text">Более 10 лет опыта в исследовании IT-рынков. Наша команда — эксперты с академическим и индустриальным бэкграундом.</p>
                 </div>
 
                 <div class="advantage-card" data-animate>
                     <div class="advantage-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     </div>
-                    <h3 class="advantage-card__title">Data-driven подход</h3>
-                    <p class="advantage-card__text">Каждое исследование базируется на проверенных данных и количественных метриках, а не на предположениях.</p>
+                    <h3 class="advantage-card__title" data-i18n="adv.2.title">Data-driven подход</h3>
+                    <p class="advantage-card__text" data-i18n="adv.2.text">Каждое исследование базируется на проверенных данных и количественных метриках, а не на предположениях.</p>
                 </div>
 
                 <div class="advantage-card" data-animate>
                     <div class="advantage-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <h3 class="advantage-card__title">Скорость и точность</h3>
-                    <p class="advantage-card__text">Быстрая подготовка отчётов без потери качества. Сжатые сроки — наше конкурентное преимущество.</p>
+                    <h3 class="advantage-card__title" data-i18n="adv.3.title">Скорость и точность</h3>
+                    <p class="advantage-card__text" data-i18n="adv.3.text">Быстрая подготовка отчётов без потери качества. Сжатые сроки — наше конкурентное преимущество.</p>
                 </div>
 
                 <div class="advantage-card" data-animate>
                     <div class="advantage-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3 class="advantage-card__title">Индивидуальный подход</h3>
-                    <p class="advantage-card__text">Каждый проект уникален. Мы адаптируем методологию под конкретные задачи и отрасль клиента.</p>
+                    <h3 class="advantage-card__title" data-i18n="adv.4.title">Индивидуальный подход</h3>
+                    <p class="advantage-card__text" data-i18n="adv.4.text">Каждый проект уникален. Мы адаптируем методологию под конкретные задачи и отрасль клиента.</p>
                 </div>
 
                 <div class="advantage-card" data-animate>
                     <div class="advantage-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3 class="advantage-card__title">Конфиденциальность</h3>
-                    <p class="advantage-card__text">Строгие NDA и политика защиты данных. Ваши исследования и стратегии остаются только вашими.</p>
+                    <h3 class="advantage-card__title" data-i18n="adv.5.title">Конфиденциальность</h3>
+                    <p class="advantage-card__text" data-i18n="adv.5.text">Строгие NDA и политика защиты данных. Ваши исследования и стратегии остаются только вашими.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    
-
     <!-- SPECIALISTS -->
     <section class="specialists" id="specialists">
         <div class="section__container">
-            <h2 class="section__title text-accent" style="text-transform: uppercase; letter-spacing: -0.04em;">НАШИ СПЕЦИАЛИСТЫ</h2>
-            <p class="section__subtitle" style="margin-bottom: 24px;">Команда экспертов с глубоким пониманием технологий и рынков</p>
+            <h2 class="section__title text-accent" style="text-transform:uppercase;letter-spacing:-0.04em;" data-i18n="spec.title">НАШИ СПЕЦИАЛИСТЫ</h2>
+            <p class="section__subtitle" style="margin-bottom:24px;" data-i18n="spec.subtitle">Команда экспертов с глубоким пониманием технологий и рынков</p>
             <div class="advantages__divider"></div>
             <div class="carousel" id="specialistsCarousel" data-infinite="true">
                 <button class="carousel__btn carousel__btn--prev" data-dir="-1" aria-label="Назад">
@@ -119,122 +157,108 @@
                 </button>
                 <div class="carousel__track-wrapper">
                     <div class="carousel__track" id="specialistsTrack">
-                        
+
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_1.jpg" alt="Михаил Романов" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_1.jpg" alt="Михаил Романов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Михаил Романов</div>
                                     <div class="specialist-card__role">Lead Research Analyst</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        МГУ, Прикладная математика и информатика
+                                        <span data-i18n="spec.1.edu">МГУ, Прикладная математика и информатика</span>
                                     </div>
-                                    <p class="specialist-card__text">Эксперт в области машинного обучения и оценки потенциала AI-стартапов.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.1.text">Эксперт в области машинного обучения и оценки потенциала AI-стартапов.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_2.jpg" alt="Илья Смирнов" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_2.jpg" alt="Илья Смирнов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Илья Смирнов</div>
                                     <div class="specialist-card__role">Senior Fintech Analyst</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        ВШЭ, Экономика и финансы
+                                        <span data-i18n="spec.2.edu">ВШЭ, Экономика и финансы</span>
                                     </div>
-                                    <p class="specialist-card__text">Специализируется на финтех-рынках, цифровых валютах и платёжных инновациях.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.2.text">Специализируется на финтех-рынках, цифровых валютах и платёжных инновациях.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_3.jpg" alt="Артем Лебедев" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_3.jpg" alt="Артем Лебедев" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Артем Лебедев</div>
                                     <div class="specialist-card__role">Cybersecurity Expert</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        МГТУ им. Баумана, Информационная безопасность
+                                        <span data-i18n="spec.3.edu">МГТУ им. Баумана, Информационная безопасность</span>
                                     </div>
-                                    <p class="specialist-card__text">Более 10 лет опыта анализа уязвимостей и корпоративных защитных решений.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.3.text">Более 10 лет опыта анализа уязвимостей и корпоративных защитных решений.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_4.jpg" alt="Виктор Ким" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_4.jpg" alt="Виктор Ким" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Виктор Ким</div>
                                     <div class="specialist-card__role">Cloud Architecture Analyst</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        МФТИ, Системная архитектура
+                                        <span data-i18n="spec.4.edu">МФТИ, Системная архитектура</span>
                                     </div>
-                                    <p class="specialist-card__text">Оценивает рынки облачных провайдеров и стратегии SaaS-миграции.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.4.text">Оценивает рынки облачных провайдеров и стратегии SaaS-миграции.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_5.jpg" alt="Александр Иванов" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_5.jpg" alt="Александр Иванов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Александр Иванов</div>
                                     <div class="specialist-card__role">Senior Data Engineer</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        СПбГУ, Программная инженерия
+                                        <span data-i18n="spec.5.edu">СПбГУ, Программная инженерия</span>
                                     </div>
-                                    <p class="specialist-card__text">Архитектор петабайтных хранилищ данных и потоковой обработки.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.5.text">Архитектор петабайтных хранилищ данных и потоковой обработки.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_1.jpg" alt="Максим Соколов" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_1.jpg" alt="Максим Соколов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Максим Соколов</div>
                                     <div class="specialist-card__role">UX Research Lead</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        ВШЭ, Психология и дизайн
+                                        <span data-i18n="spec.6.edu">ВШЭ, Психология и дизайн</span>
                                     </div>
-                                    <p class="specialist-card__text">Анализ пользовательского поведения и проектирование сложных B2B интерфейсов.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.6.text">Анализ пользовательского поведения и проектирование сложных B2B интерфейсов.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="carousel__slide">
                             <div class="specialist-card">
-                                <div class="specialist-card__photo">
-                                    <img src="icons/spec_2.jpg" alt="Олег Васильев" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                </div>
+                                <div class="specialist-card__photo"><img src="icons/spec_2.jpg" alt="Олег Васильев" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
                                 <div class="specialist-card__info">
                                     <div class="specialist-card__name">Олег Васильев</div>
                                     <div class="specialist-card__role">AI Strategy Consultant</div>
                                     <div class="specialist-card__education">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        Сколтех, Инновации и бизнес
+                                        <span data-i18n="spec.7.edu">Сколтех, Инновации и бизнес</span>
                                     </div>
-                                    <p class="specialist-card__text">Внедрение ИИ-решений в корпоративные процессы. Автор 10+ публикаций.</p>
+                                    <p class="specialist-card__text" data-i18n="spec.7.text">Внедрение ИИ-решений в корпоративные процессы. Автор 10+ публикаций.</p>
                                 </div>
                             </div>
                         </div>
@@ -250,14 +274,13 @@
 
     <!-- PARTNERS -->
     <section class="partners" id="partners">
-        <div class="section__container" style="padding-top: 0; padding-bottom: 0;">
-            <h2 class="section__title" style="text-transform: uppercase; letter-spacing: -0.04em; text-align: center;">НАМ <span class="text-accent">ДОВЕРЯЮТ</span></h2>
+        <div class="section__container" style="padding-top:0;padding-bottom:0;">
+            <h2 class="section__title" style="text-transform:uppercase;letter-spacing:-0.04em;text-align:center;" data-i18n-html="partners.title">НАМ <span class="text-accent">ДОВЕРЯЮТ</span></h2>
             <div class="advantages__divider"></div>
         </div>
         <div class="partners__marquee">
             <div class="partners__marquee-fade partners__marquee-fade--left"></div>
             <div class="partners__marquee-fade partners__marquee-fade--right"></div>
-            
             <div class="partners__track partners__track--right">
                 <div class="partners__list">
                     <div class="partner-card glass-card"><img src="иконки/3m.png" alt="3M"></div>
@@ -300,7 +323,6 @@
                     <div class="partner-card glass-card"><img src="иконки/mcdonalds.png" alt="McDonalds"></div>
                 </div>
             </div>
-
             <div class="partners__track partners__track--left">
                 <div class="partners__list">
                     <div class="partner-card glass-card"><img src="иконки/netflix.png" alt="Netflix"></div>
@@ -349,8 +371,8 @@
         <div class="contacts__fade contacts__fade--right"></div>
         <div class="contacts__inner">
             <div class="contacts__info">
-                <h2 class="contacts__title">Свяжитесь с нами</h2>
-                <p class="contacts__text">Готовы обсудить ваш проект или задать вопрос? Мы всегда на связи.</p>
+                <h2 class="contacts__title" data-i18n="contacts.h">Свяжитесь с нами</h2>
+                <p class="contacts__text" data-i18n="contacts.p">Готовы обсудить ваш проект или задать вопрос? Мы всегда на связи.</p>
                 <div class="contacts__details">
                     <a href="mailto:info@redshiftlab.ru" class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -362,21 +384,21 @@
                     </a>
                     <div class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Москва, Россия
+                        <span data-i18n="contacts.location">Москва, Россия</span>
                     </div>
                 </div>
             </div>
             <form class="contacts__form glass-card" id="contactForm">
                 <div class="form__group">
-                    <input type="text" id="formName" placeholder="Ваше имя" required>
+                    <input type="text" id="formName" placeholder="Ваше имя" data-i18n-ph="form.name" required>
                 </div>
                 <div class="form__group">
                     <input type="email" id="formEmail" placeholder="Email" required>
                 </div>
                 <div class="form__group">
-                    <textarea id="formMessage" placeholder="Сообщение" rows="4" required></textarea>
+                    <textarea id="formMessage" placeholder="Сообщение" data-i18n-ph="form.message" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full">Отправить</button>
+                <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Отправить</button>
             </form>
         </div>
     </section>
@@ -386,36 +408,45 @@
         <div class="footer__inner">
             <div class="footer__brand">
                 <img src="assets/logo.png" alt="RED AXIS" class="footer__logo">
-                <p class="footer__desc">IT-исследования и аналитика для бизнеса</p>
+                <p class="footer__desc" data-i18n="footer.desc">IT-исследования и аналитика для бизнеса</p>
             </div>
             <div class="footer__links">
                 <div class="footer__col">
-                    <h4>Навигация</h4>
-                    <a href="index.html" class="header__link">Главная</a>
-                <a href="services.html" class="header__link">Наши услуги</a>
-                <a href="research.html" class="header__link">Исследования</a>
-                <a href="contacts.html" class="header__link">Контакты</a>
+                    <h4 data-i18n="footer.nav">Навигация</h4>
+                    <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
+                    <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
+                    <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                    <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <span>&copy; 2026 RED AXIS. Все права защищены.</span>
+            <div class="footer__bottom" style="display:flex;justify-content:space-between;align-items:center;">
+                <span data-i18n="footer.copy">&copy; 2026 RED AXIS. Все права защищены.</span>
+                <div class="theme-toggle-wrapper" style="margin-top:0;">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <div class="theme-toggle__slider"></div>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
+
     <!-- COOKIE BANNER -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-banner__bg"></div>
         <div class="cookie-banner__glass">
             <div class="cookie-banner__text">
-                <p>Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+                <p data-i18n="cookie.text">Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
             </div>
             <div class="cookie-banner__actions">
-                <button class="btn btn--outline" id="declineCookies">Отказаться</button>
-                <button class="btn btn--primary" id="acceptCookies">Принять</button>
+                <button class="btn btn--outline" id="declineCookies" data-i18n="cookie.decline">Отказаться</button>
+                <button class="btn btn--primary" id="acceptCookies" data-i18n="cookie.accept">Принять</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <script src="i18n.js?v=1"></script>
+    <script src="script.js?v=9"></script>
 </body>
 </html>

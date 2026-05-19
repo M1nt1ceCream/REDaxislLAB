@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-page="contacts">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=9">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 <body>
+
+    <!-- LANGUAGE PICKER OVERLAY -->
+    <div class="lang-overlay" id="langOverlay">
+        <div class="lang-picker glass-card">
+            <img src="assets/logo.png" alt="RED AXIS" class="lang-picker__logo">
+            <p class="lang-picker__label">Select language / Выберите язык</p>
+            <div class="lang-selector">
+                <div class="lang-selector__btn">
+                    <span>Выбрать язык</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+                <div class="lang-selector__drop">
+                    <div class="lang-option" data-lang="ru">Русский</div>
+                    <div class="lang-option" data-lang="en">English</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- PAGE TRANSITION OVERLAY -->
     <div class="page-transition" id="pageTransition">
@@ -22,15 +46,33 @@
             <a href="#" class="header__logo">
                 <img src="assets/logo.png" alt="RED AXIS" class="header__logo-img">
             </a>
+            <div class="header__right">
+                <button class="theme-toggle theme-toggle--header" aria-label="Переключить тему">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <div class="theme-toggle__slider"></div>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <div class="lang-switch" id="headerLangSwitch">
+                    <button class="lang-switch__btn" id="headerLangBtn">
+                        <span id="headerLangLabel">RU</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-switch__drop" id="headerLangDropdown">
+                        <div class="lang-option" data-lang="ru">Русский</div>
+                        <div class="lang-option" data-lang="en">English</div>
+                    </div>
+                </div>
+                <div class="header__lang-divider"></div>
+                <button class="header__burger" id="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
             <nav class="header__nav" id="nav">
-                <a href="index.html" class="header__link">Главная</a>
-                <a href="services.html" class="header__link">Наши услуги</a>
-                <a href="research.html" class="header__link">Исследования</a>
-                <a href="contacts.html" class="header__link">Контакты</a>
+                <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
+                <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
+                <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
             </nav>
-            <button class="header__burger" id="burger" aria-label="Меню">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </header>
 
@@ -39,9 +81,9 @@
         <canvas class="contacts__bg" id="contactsCanvas" style="mask-image: linear-gradient(to bottom, transparent 0%, transparent 180px, black 250px); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 180px, black 250px);"></canvas>
         <div class="contacts__fade contacts__fade--left"></div>
         <div class="contacts__fade contacts__fade--right"></div>
-        
+
         <div class="page-header" style="background: transparent; padding-top: 100px; padding-bottom: 80px;">
-            <h1 class="page-header__title">Контактная <span class="text-accent">информация</span></h1>
+            <h1 class="page-header__title" data-i18n-html="page.contacts.h">Контактная <span class="text-accent">информация</span></h1>
         </div>
 
         <!-- NEW GLASS BLOCK -->
@@ -53,24 +95,24 @@
 
             <!-- Office Info -->
             <div class="contacts__info" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: left; padding: 24px 0;">
-                <h2 class="contacts__title">Наш офис</h2>
-                <p class="contacts__text" style="max-width: 100%;">Мы всегда рады обсудить новые проекты и идеи. Заглядывайте к нам на чашечку кофе в сердце деловой Москвы.</p>
-                
+                <h2 class="contacts__title" data-i18n="contacts.office.h">Наш офис</h2>
+                <p class="contacts__text" style="max-width: 100%;" data-i18n="contacts.office.p">Мы всегда рады обсудить новые проекты и идеи. Заглядывайте к нам на чашечку кофе в сердце деловой Москвы.</p>
+
                 <div class="contacts__details" style="margin-top: 16px;">
                     <div class="contacts__item" style="align-items: flex-start;">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-top: 4px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <div>
-                            <strong style="color: var(--text);">Адрес:</strong><br>
-                            г. Москва, Пресненская наб., 12<br>
-                            <span style="font-size: 0.85em; color: var(--text-dim); opacity: 0.8;">ММДЦ «Москва-Сити», Башня Федерация</span>
+                            <strong style="color: var(--text);" data-i18n="contacts.addr.label">Адрес:</strong><br>
+                            <span data-i18n="contacts.addr">г. Москва, Пресненская наб., 12</span><br>
+                            <span style="font-size: 0.85em; color: var(--text-dim); opacity: 0.8;" data-i18n="contacts.addr.sub">ММДЦ «Москва-Сити», Башня Федерация</span>
                         </div>
                     </div>
                     <div class="contacts__item" style="align-items: flex-start; margin-top: 8px;">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-top: 4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         <div>
-                            <strong style="color: var(--text);">Режим работы:</strong><br>
-                            Пн – Пт: 10:00 – 19:00<br>
-                            <span style="font-size: 0.85em; color: var(--text-dim); opacity: 0.8;">Сб, Вс: выходные дни</span>
+                            <strong style="color: var(--text);" data-i18n="contacts.hours.label">Режим работы:</strong><br>
+                            <span data-i18n="contacts.hours">Пн – Пт: 10:00 – 19:00</span><br>
+                            <span style="font-size: 0.85em; color: var(--text-dim); opacity: 0.8;" data-i18n="contacts.hours.sub">Сб, Вс: выходные дни</span>
                         </div>
                     </div>
                 </div>
@@ -80,8 +122,8 @@
         <!-- ORIGINAL CONTACT BLOCK -->
         <div class="contacts__inner">
             <div class="contacts__info">
-                <h2 class="contacts__title">Свяжитесь с нами</h2>
-                <p class="contacts__text">Готовы обсудить ваш проект или задать вопрос? Мы всегда на связи.</p>
+                <h2 class="contacts__title" data-i18n="contacts.h">Свяжитесь с нами</h2>
+                <p class="contacts__text" data-i18n="contacts.p">Готовы обсудить ваш проект или задать вопрос? Мы всегда на связи.</p>
                 <div class="contacts__details">
                     <a href="mailto:info@redshiftlab.ru" class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -93,21 +135,21 @@
                     </a>
                     <div class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Москва, Россия
+                        <span data-i18n="contacts.location">Москва, Россия</span>
                     </div>
                 </div>
             </div>
             <form class="contacts__form glass-card" id="contactForm">
                 <div class="form__group">
-                    <input type="text" id="formName" placeholder="Ваше имя" required>
+                    <input type="text" id="formName" data-i18n-ph="form.name" placeholder="Ваше имя" required>
                 </div>
                 <div class="form__group">
-                    <input type="email" id="formEmail" placeholder="Email" required>
+                    <input type="email" id="formEmail" data-i18n-ph="form.email" placeholder="Email" required>
                 </div>
                 <div class="form__group">
-                    <textarea id="formMessage" placeholder="Сообщение" rows="4" required></textarea>
+                    <textarea id="formMessage" data-i18n-ph="form.message" placeholder="Сообщение" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full">Отправить</button>
+                <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Отправить</button>
             </form>
         </div>
     </section>
@@ -117,41 +159,50 @@
         <div class="footer__inner">
             <div class="footer__brand">
                 <img src="assets/logo.png" alt="RED AXIS" class="footer__logo">
-                <p class="footer__desc">IT-исследования и аналитика для бизнеса</p>
+                <p class="footer__desc" data-i18n="footer.desc">IT-исследования и аналитика для бизнеса</p>
             </div>
             <div class="footer__links">
                 <div class="footer__col">
-                    <h4>Навигация</h4>
-                    <a href="index.html">Главная</a>
-                    <a href="services.html">Наши услуги</a>
-                    <a href="research.html">Исследования</a>
+                    <h4 data-i18n="footer.nav">Навигация</h4>
+                    <a href="index.html" data-i18n="nav.home">Главная</a>
+                    <a href="services.html" data-i18n="nav.services">Наши услуги</a>
+                    <a href="research.html" data-i18n="nav.research">Исследования</a>
                 </div>
                 <div class="footer__col">
-                    <h4>Компания</h4>
-                    <a href="contacts.html">Контакты</a>
+                    <h4 data-i18n="footer.company">Компания</h4>
+                    <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <span>&copy; 2026 RED AXIS. Все права защищены.</span>
+            <div class="footer__bottom" style="display:flex; justify-content:space-between; align-items:center;">
+                <span data-i18n="footer.copy">&copy; 2026 RED AXIS. Все права защищены.</span>
+                <div class="theme-toggle-wrapper" style="margin-top:0;">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <div class="theme-toggle__slider"></div>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
+
     <!-- COOKIE BANNER -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-banner__bg"></div>
         <div class="cookie-banner__glass">
             <div class="cookie-banner__text">
-                <p>Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+                <p data-i18n="cookie.text">Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
             </div>
             <div class="cookie-banner__actions">
-                <button class="btn btn--outline" id="declineCookies">Отказаться</button>
-                <button class="btn btn--primary" id="acceptCookies">Принять</button>
+                <button class="btn btn--outline" id="declineCookies" data-i18n="cookie.decline">Отказаться</button>
+                <button class="btn btn--primary" id="acceptCookies" data-i18n="cookie.accept">Принять</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js?v=4"></script>
-    
+    <script src="i18n.js?v=1"></script>
+    <script src="script.js?v=9"></script>
+
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script>
         ymaps.ready(function () {
