@@ -1,25 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== THEME TOGGLE ===== */
+  const themeToggle = document.getElementById('themeToggle');
   const htmlEl = document.documentElement;
 
-  function applyToggleState(isDark) {
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-      const slider = btn.querySelector('.theme-toggle__slider');
-      if (slider) slider.style.transform = isDark ? 'translateX(36px)' : 'translateX(0)';
-    });
-  }
-
-  document.querySelectorAll('.theme-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
       const newTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       htmlEl.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-      applyToggleState(newTheme === 'dark');
+      const slider = themeToggle.querySelector('.theme-toggle__slider');
+      if (slider) slider.style.transform = newTheme === 'dark' ? 'translateX(36px)' : 'translateX(0)';
     });
-  });
 
-  applyToggleState(htmlEl.getAttribute('data-theme') === 'dark');
+    if (htmlEl.getAttribute('data-theme') === 'dark') {
+      const slider = themeToggle.querySelector('.theme-toggle__slider');
+      if (slider) slider.style.transform = 'translateX(36px)';
+    }
+  }
 
   /* ===== BURGER MENU ===== */
   const burger = document.getElementById('burger');
@@ -174,17 +172,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('cookiesAccepted') || localStorage.getItem('cookiesDeclined')) {
       cookieBanner.classList.add('cookie-banner--hidden');
     } else {
-      // Small delay to animate in
+      document.body.classList.add('has-cookie-banner');
       setTimeout(() => cookieBanner.classList.remove('cookie-banner--hidden'), 500);
     }
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookiesAccepted', 'true');
       cookieBanner.classList.add('cookie-banner--hidden');
+      document.body.classList.remove('has-cookie-banner');
     });
     if (declineBtn) {
       declineBtn.addEventListener('click', () => {
         localStorage.setItem('cookiesDeclined', 'true');
         cookieBanner.classList.add('cookie-banner--hidden');
+        document.body.classList.remove('has-cookie-banner');
       });
     }
   }
