@@ -5,13 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const htmlEl = document.documentElement;
 
   if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const newTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    function applyTheme(newTheme) {
       htmlEl.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       const slider = themeToggle.querySelector('.theme-toggle__slider');
       if (slider) slider.style.transform = newTheme === 'dark' ? 'translateX(36px)' : 'translateX(0)';
-    });
+    }
+
+    let tLast = 0;
+    function doToggle() {
+      const now = Date.now();
+      if (now - tLast < 500) return;
+      tLast = now;
+      applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    themeToggle.addEventListener('click', doToggle);
+    themeToggle.addEventListener('touchend', (e) => { e.preventDefault(); doToggle(); }, { passive: false });
 
     if (htmlEl.getAttribute('data-theme') === 'dark') {
       const slider = themeToggle.querySelector('.theme-toggle__slider');
@@ -29,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelectorAll('.header__link').forEach(link => {
       link.addEventListener('click', () => { nav.classList.remove('open'); burger.classList.remove('active'); });
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav.classList.contains('open')) return;
+      if (!nav.contains(e.target) && !burger.contains(e.target)) {
+        nav.classList.remove('open');
+        burger.classList.remove('active');
+      }
     });
   }
 
@@ -387,6 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     section.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 640) return;
       const rect = section.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
@@ -394,8 +411,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     section.addEventListener('mouseleave', () => {
+      if (window.innerWidth <= 640) return;
       targetStrength = 0;
     });
+
+    function onMobileScrollCanvas() {
+      if (window.innerWidth > 640) return;
+      const rect = section.getBoundingClientRect();
+      mouseX = window.innerWidth / 2 - rect.left;
+      mouseY = window.innerHeight / 2 - rect.top;
+      targetStrength = rect.top < window.innerHeight && rect.bottom > 0 ? 1 : 0;
+    }
+
+    window.addEventListener('scroll', onMobileScrollCanvas, { passive: true });
+    window.addEventListener('resize', onMobileScrollCanvas);
+
+    if (window.innerWidth <= 640) {
+      const r = section.getBoundingClientRect();
+      mouseX = window.innerWidth / 2 - r.left;
+      mouseY = window.innerHeight / 2 - r.top;
+      targetStrength = r.top < window.innerHeight && r.bottom > 0 ? 1 : 0;
+    }
 
     const resizeObserver = new ResizeObserver(() => {
       resize();
@@ -459,6 +495,84 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   initContactsCanvas();
+
+  /* ===== RESEARCH CANVAS BACKGROUND ===== */
+  function initResearchCanvas() {
+    const canvas = document.getElementById('researchCanvas');
+    const section = document.getElementById('research');
+    if (!canvas || !section) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = 0, height = 0;
+
+    const spacing = 30;
+    const baseRadius = 3.5;
+    const waveAmp = 8;
+    const waveFreq = 0.08;
+    const fadeMargin = 40;
+    let wavePhase = 0;
+
+    function resize() {
+      const rect = section.getBoundingClientRect();
+      if (width === rect.width && height === rect.height) return;
+      width = rect.width;
+      height = rect.height;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+    }
+
+    const resizeObserver = new ResizeObserver(() => resize());
+    resizeObserver.observe(section);
+    window.addEventListener('resize', () => {
+      clearTimeout(window.researchResizeTimeout);
+      window.researchResizeTimeout = setTimeout(resize, 100);
+    });
+    resize();
+
+    function drawFrame() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#ff0000';
+      wavePhase += 0.03;
+
+      const cols = Math.ceil(width / spacing) + 1;
+      const rows = Math.ceil(height / spacing) + 1;
+      const offsetX = (width - cols * spacing) / 2 + spacing / 2;
+      const offsetY = (height - rows * spacing) / 2 + spacing / 2;
+      const skipMarginH = width * 0.20;
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const x = offsetX + i * spacing;
+          const y = offsetY + j * spacing;
+
+          const edgeDistH = Math.min(x, width - x);
+          if (edgeDistH < skipMarginH) continue;
+
+          const edgeDistV = Math.min(y, height - y);
+          let edgeScale = 1;
+          if (edgeDistV < fadeMargin) edgeScale = Math.max(0, edgeDistV / fadeMargin);
+          if (edgeScale <= 0) continue;
+
+          const wave = (Math.sin(x * waveFreq - wavePhase) + 1) / 2;
+          const radius = (baseRadius + wave * waveAmp) * edgeScale;
+
+          ctx.globalAlpha = edgeScale * 0.9;
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    function loop() {
+      drawFrame();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+  initResearchCanvas();
 
   /* ===== PARTNERS MARQUEE SMOOTH HOVER ===== */
   const partnersMarquee = document.querySelector('.partners__marquee');

@@ -93,6 +93,23 @@ const T = {
     'res.5.text':  'Анализ внедрения IoT-решений на предприятиях, ROI кейсы и барьеры масштабирования.',
     'res.5.date':  'Декабрь 2025',
 
+    'res.a.tag':   'АПК',
+    'res.a.title': 'Цифровизация агропромышленного комплекса',
+    'res.a.text':  'Анализ внедрения цифровых технологий в сельское хозяйство: умные фермы, прецизионное земледелие и роль данных в повышении урожайности.',
+    'res.a.date':  'Май 2026',
+    'res.b.tag':   'Финтех',
+    'res.b.title': 'Финансовые технологии: платёжные системы и цифровые активы',
+    'res.b.text':  'Обзор цифровых платёжных решений, CBDC, DeFi и регуляторной среды для финтех-компаний в России и мире.',
+    'res.b.date':  'Апрель 2026',
+    'res.c.tag':   'ИТ',
+    'res.c.title': 'IT-инфраструктура: облако, безопасность и DevOps',
+    'res.c.text':  'Исследование трендов корпоративной IT-инфраструктуры: миграция в облако, практики DevSecOps и управление рисками.',
+    'res.c.date':  'Март 2026',
+    'res.d.tag':   'ИИ',
+    'res.d.title': 'Генеративный ИИ: трансформация бизнес-процессов',
+    'res.d.text':  'Глубокий анализ практического применения LLM и генеративных моделей в бизнесе, ROI-кейсы и барьеры внедрения.',
+    'res.d.date':  'Февраль 2026',
+
     'page.contacts.h':      'Контактная <span class="text-accent">информация</span>',
     'contacts.office.h':    'Наш офис',
     'contacts.office.p':    'Мы всегда рады обсудить новые проекты и идеи. Заглядывайте к нам на чашечку кофе в сердце деловой Москвы.',
@@ -197,6 +214,23 @@ const T = {
     'res.5.text':  'Analysis of IoT solution adoption in enterprises, ROI cases and scaling barriers.',
     'res.5.date':  'December 2025',
 
+    'res.a.tag':   'Agro',
+    'res.a.title': 'Digitalization of the Agro-Industrial Complex',
+    'res.a.text':  'Analysis of digital technology adoption in agriculture: smart farms, precision farming and the role of data in improving crop yields.',
+    'res.a.date':  'May 2026',
+    'res.b.tag':   'Fintech',
+    'res.b.title': 'Financial Technology: Payment Systems & Digital Assets',
+    'res.b.text':  'Overview of digital payment solutions, CBDCs, DeFi and the regulatory environment for fintech companies in Russia and globally.',
+    'res.b.date':  'April 2026',
+    'res.c.tag':   'IT',
+    'res.c.title': 'IT Infrastructure: Cloud, Security & DevOps',
+    'res.c.text':  'Research into enterprise IT infrastructure trends: cloud migration, DevSecOps practices and risk management.',
+    'res.c.date':  'March 2026',
+    'res.d.tag':   'AI',
+    'res.d.title': 'Generative AI: Transforming Business Processes',
+    'res.d.text':  'In-depth analysis of practical LLM and generative model applications in business, ROI cases and adoption barriers.',
+    'res.d.date':  'February 2026',
+
     'page.contacts.h':      'Contact <span class="text-accent">Information</span>',
     'contacts.office.h':    'Our office',
     'contacts.office.p':    'We are always happy to discuss new projects and ideas. Come visit us for a cup of coffee in the heart of business Moscow.',
@@ -262,66 +296,24 @@ function initHeaderSwitcher() {
   });
 }
 
-/* ===== LANGUAGE PICKER OVERLAY ===== */
-function initLangPicker() {
-  const overlay = document.getElementById('langOverlay');
-  if (!overlay) return;
-
-  const saved = localStorage.getItem('lang');
-  if (saved) {
-    overlay.remove();
-    applyLang(saved);
-    return;
-  }
-
-  /* show after short delay */
-  setTimeout(() => overlay.classList.add('lang-overlay--visible'), 150);
-
-  const selector = overlay.querySelector('.lang-selector');
-  overlay.querySelectorAll('.lang-option').forEach(opt => {
-    opt.addEventListener('click', () => {
-      const lang = opt.dataset.lang;
-      localStorage.setItem('lang', lang);
-      applyLang(lang);
-
-      /* close dropdown */
-      selector && selector.classList.remove('open');
-
-      /* fade out overlay */
-      overlay.classList.add('lang-overlay--hiding');
-
-      /* show logo animation: remove is-hidden briefly then re-add */
-      const pt = document.getElementById('pageTransition');
-      if (pt) {
-        pt.classList.remove('is-hidden');
-        setTimeout(() => pt.classList.add('is-hidden'), 100);
-      }
-
-      setTimeout(() => overlay.remove(), 600);
-    });
-  });
-
-  /* CSS :hover handles dropdown open/close;
-     also support click for touch devices */
-  selector && selector.addEventListener('click', e => {
-    e.stopPropagation();
-    selector.classList.toggle('open');
-  });
-  document.addEventListener('click', () => {
-    selector && selector.classList.remove('open');
-  });
+/* ===== AUTO-DETECT LANGUAGE ===== */
+function detectLang() {
+  const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().split('-')[0];
+  const cis = ['ru','uk','be','kk','uz','az','ky','tg','tk','hy','ka','mo'];
+  return cis.includes(lang) ? 'ru' : 'en';
 }
 
 /* ===== EXPOSE helper for script.js form handler ===== */
 window.getI18n = key => {
-  const lang = localStorage.getItem('lang') || 'ru';
+  const lang = localStorage.getItem('lang') || detectLang();
   return (T[lang] && T[lang][key]) || key;
 };
 
 /* ===== BOOT ===== */
 document.addEventListener('DOMContentLoaded', () => {
-  initLangPicker();
   initHeaderSwitcher();
   const saved = localStorage.getItem('lang');
-  if (saved) applyLang(saved);
+  const lang = saved || detectLang();
+  if (!saved) localStorage.setItem('lang', lang);
+  applyLang(lang);
 });
