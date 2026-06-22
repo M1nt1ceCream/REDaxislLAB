@@ -267,7 +267,7 @@
     </div>
 
     <script src="i18n.js?v=10"></script>
-    <script src="script.js?v=35"></script>
+    <script src="script.js?v=36"></script>
     <script>
       (function(){
         const bar = document.getElementById('rfilter');
@@ -319,10 +319,9 @@
               void grid.offsetHeight; // force reflow
               grid.style.height = endH + 'px';
             } else {
-              // mobile: 1-col layout => huge height delta stretches the bg canvas, so we
-              // snap the height and resize the canvas immediately to the final size.
+              // mobile: 1-col layout => snap the height (no animation). The bg canvas is
+              // locked to the full height, so it doesn't resize here at all.
               void grid.offsetHeight; // commit the hidden state for a clean fade-in
-              if (window.researchCanvasResize) window.researchCanvasResize();
             }
 
             // fade all shown cards in together

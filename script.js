@@ -451,11 +451,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function resize() {
       const rect = section.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
-      width = rect.width;
-      height = rect.height;
-      const dpr = window.devicePixelRatio || 1;
+      const w = rect.width;
+      if (w !== width) canvas._maxH = 0;       // viewport width changed -> re-measure full height
+      width = w;
+      canvas._maxH = Math.max(canvas._maxH || 0, rect.height);  // lock bg to the tallest (all-cards) state
+      height = canvas._maxH;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
+      canvas.style.height = height + 'px';     // fixed px height -> filtering never resizes the bg
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (!placed) { for (const b of blobs) { b.x = b.bx * width; b.y = b.by * height; } placed = true; }
     }
@@ -468,20 +472,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     section.addEventListener('mouseleave', () => { mouseActive = false; });
 
-    // Debounce so the filter height-animation doesn't re-create (clear) the
-    // canvas on every frame — that caused the background to flash/disappear.
-    let roTimer;
-    const resizeObserver = new ResizeObserver(() => {
-      clearTimeout(roTimer);
-      roTimer = setTimeout(resize, 90);
-    });
-    resizeObserver.observe(section);
+    // The bg is locked to the full (all-cards) height and only re-measured on a real
+    // viewport resize — filtering never touches the canvas, so there's no resize jank.
     window.addEventListener('resize', () => {
       clearTimeout(window.researchResizeTimeout);
-      window.researchResizeTimeout = setTimeout(resize, 100);
+      window.researchResizeTimeout = setTimeout(resize, 120);
     });
+    window.addEventListener('load', resize);   // recapture full height after fonts load
     resize();
-    window.researchCanvasResize = resize;   // let the filter resize the bg immediately
 
     function step() {
       if (!width || !height) { requestAnimationFrame(step); return; }
@@ -520,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
         g.addColorStop(0.65, `rgba(${rr},${gg},${bb},${a2})`);
         g.addColorStop(1,    `rgba(${rr},${gg},${bb},0)`);
         ctx.fillStyle = g;
-        ctx.fillRect(0, 0, width, height);
+        ctx.fillRect(b.x - r, b.y - r, r * 2, r * 2);   // only the blob's bbox, not the whole (tall) canvas
       }
       requestAnimationFrame(step);
     }
