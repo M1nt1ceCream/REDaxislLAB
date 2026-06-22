@@ -277,6 +277,14 @@ input,textarea{font-family:inherit;font-size:1rem}
   color: var(--text-dim);
   margin-bottom: -6px;
 }
+/* "What we deliver" eyebrow rendered as a white section heading */
+.advantages .advantages__eyebrow{
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:800;
+  color:var(--text);
+  letter-spacing:-.02em;
+  margin-bottom:0;
+}
 .advantages .section__title {
   text-align: left;
   margin-bottom: 0;
@@ -792,6 +800,26 @@ input,textarea{font-family:inherit;font-size:1rem}
   border-color:var(--accent);
   box-shadow:0 12px 30px rgba(180,0,0,.16);
 }
+
+/* "Where we're strong" region cards: standard card + smooth red border (no glass) */
+.cov-sec--b .cov-card{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.cov-sec--b .cov-card::before,.cov-sec--b .cov-card::after{display:none}
+.cov-sec--b .cov-card[data-animate].visible{
+  transition:opacity .7s ease,transform var(--transition),border-color .35s ease,box-shadow .35s ease;
+}
+.cov-sec--b .cov-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 12px 30px rgba(180,0,0,.16);
+}
+.cov-sec--b .cov-card:hover .cov-card__title,
+.cov-sec--b .cov-card:hover .cov-card__list li{color:var(--text)}
+.cov-sec--b .cov-card:hover .cov-card__text{color:var(--text-dim)}
+.cov-sec--b .cov-card:hover .cov-card__label{color:var(--accent)}
+.cov-sec--b .cov-card:hover .cov-card__list li::before{background:var(--accent)}
 
 /* ===== CONTACTS ===== */
 .contacts{position:relative;padding:80px 24px;overflow:hidden;z-index:1;background:var(--bg-alt);transition:background-color 0.5s ease}
