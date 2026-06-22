@@ -68,7 +68,7 @@ input,textarea{font-family:inherit;font-size:1rem}
 /* ===== UTILITY ===== */
 .text-accent{color:var(--accent)}
 .section__container{max-width:var(--max-w);margin:0 auto;padding:100px 24px}
-.section__title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;margin-bottom:16px;letter-spacing:-.02em;color:var(--text)}
+.section__title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;line-height:1.08;margin-bottom:16px;letter-spacing:-.02em;color:var(--text)}
 .section__subtitle{text-align:center;color:var(--text-dim);font-size:1.05rem;margin-bottom:48px;max-width:560px;margin-left:auto;margin-right:auto}
 
 /* ===== GLASS CARD ===== */
@@ -275,15 +275,7 @@ input,textarea{font-family:inherit;font-size:1rem}
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-dim);
-  margin-bottom: -6px;
-}
-/* "What we deliver" eyebrow rendered as a white section heading */
-.advantages .advantages__eyebrow{
-  font-size:clamp(1.8rem,4vw,2.8rem);
-  font-weight:800;
-  color:var(--text);
-  letter-spacing:-.02em;
-  margin-bottom:0;
+  margin-bottom: 6px;
 }
 .advantages .section__title {
   text-align: left;
@@ -578,7 +570,7 @@ input,textarea{font-family:inherit;font-size:1rem}
 .contacts__form-note{font-size:.78rem;color:var(--text-dim);margin-top:14px;text-align:center;line-height:1.5}
 
 /* ===== SERVICES PAGE ===== */
-.page-header__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.page-header__eyebrow{display:block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
 .page-header__sub{max-width:660px;margin:18px auto 0;font-size:1.02rem;line-height:1.6;color:var(--text-dim)}
 .services-cta-row{display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap}
 .advantages .services-cta-row{justify-content:flex-start;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;width:calc((100% - 20px) / 2)}
@@ -986,6 +978,7 @@ input,textarea{font-family:inherit;font-size:1rem}
 
   /* Section headers: keep eyebrow + title aligned together on mobile */
   .advantages__header .advantages__header-inner{display:block;text-align:center}
+  .advantages .section__title{text-align:center}
 
   /* Research filter: rounded rectangle instead of giant pill when chips wrap */
   .rfilter{border-radius:20px}
@@ -1422,7 +1415,11 @@ html:not([data-theme="dark"]) .theme-toggle .icon-sun {
   z-index: 200;
 }
 @media (max-width: 768px) {
-  .lang-switch__drop { right: 16px; width: 360px; max-width: calc(100vw - 32px); }
+  /* Full layout width on mobile, matching the header gutter */
+  .lang-switch__drop { left: 24px; right: 24px; width: auto; max-width: none; }
+}
+@media (max-width: 640px) {
+  .lang-switch__drop { left: 16px; right: 16px; }
 }
 .lang-switch.open .lang-switch__drop { opacity: 1; transform: translateY(0); pointer-events: all; }
 .lang-switch__drop .lang-option {
@@ -1432,14 +1429,47 @@ html:not([data-theme="dark"]) .theme-toggle .icon-sun {
   border-radius: 10px;
   padding: 13px 16px;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 .lang-switch__drop .lang-option + .lang-option { border-top: none; }
 .lang-switch__drop .lang-option:hover { background: rgba(128,128,128,.18); color: var(--accent); }
+.lang-option__name { flex: 1 1 auto; min-width: 0; }
+/* Flag thumbnail pinned to the right edge of the option box */
+.lang-option__flag {
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: 16px;
+  line-height: 0;
+}
+.lang-option__flag svg {
+  display: block;
+  width: 24px;
+  height: 16px;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.16), 0 1px 2px rgba(0,0,0,.3);
+}
+[data-theme="dark"] .lang-option__flag svg {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18), 0 1px 2px rgba(0,0,0,.45);
+}
+/* Vertical divider tied to the left of the flag */
+.lang-option__flag::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 18px;
+  background: var(--border-light);
+}
 
 .header__lang-divider {
-  width: 1px; height: 16px;
+  width: 1px; height: 18px;
   background: var(--border-light);
   flex-shrink: 0;
+  align-self: center;
+  margin: 0 8px 0 2px;
 }
 
 /* ===== DARK THEME OVERRIDES ===== */
@@ -1549,6 +1579,9 @@ html:not([data-theme="dark"]) .theme-toggle .icon-sun {
 @media(max-width:640px){
   .coverage-map__wrap{height:60vw;min-height:280px}
   .coverage-map__countries{grid-template-columns:repeat(2,1fr);gap:20px}
+  /* map too small on mobile -> clustered marker labels overlap; keep dots, drop labels
+     (region names are listed in the columns below anyway) */
+  .map-marker__label{display:none}
 }
 [data-theme="dark"] .coverage-map__img{filter:invert(1) opacity(0.18)}
 
