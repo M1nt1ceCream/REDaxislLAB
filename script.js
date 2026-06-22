@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let roTimer;
     const resizeObserver = new ResizeObserver(() => {
       clearTimeout(roTimer);
-      roTimer = setTimeout(resize, 160);
+      roTimer = setTimeout(resize, 90);
     });
     resizeObserver.observe(section);
     window.addEventListener('resize', () => {

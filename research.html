@@ -267,7 +267,7 @@
     </div>
 
     <script src="i18n.js?v=10"></script>
-    <script src="script.js?v=33"></script>
+    <script src="script.js?v=34"></script>
     <script>
       (function(){
         const bar = document.getElementById('rfilter');
@@ -295,33 +295,41 @@
 
         function applyFilter(f){
           animating = true;
+          const mobile = window.matchMedia('(max-width: 640px)').matches;
           const startH = grid.offsetHeight;
           // fade out everything currently visible
           cards.forEach(c => { if(c.style.display !== 'none') c.classList.add('rcard--hiding'); });
 
           setTimeout(() => {
-            // swap which cards are in the layout
+            // swap which cards are in the layout; force-reveal the shown ones so the
+            // scroll-reveal system (data-animate/.visible) can't leave them at opacity:0
             cards.forEach(card => {
-              card.style.display = (f === 'all' || card.dataset.sector === f) ? '' : 'none';
+              const show = (f === 'all' || card.dataset.sector === f);
+              card.style.display = show ? '' : 'none';
+              if (show) card.classList.add('visible');
             });
-            // measure natural target height
-            grid.style.height = 'auto';
-            const endH = grid.offsetHeight;
-            // animate height from old to new
-            grid.style.overflow = 'hidden';
-            grid.style.height = startH + 'px';
-            void grid.offsetHeight; // force reflow
-            grid.style.height = endH + 'px';
+
+            if (!mobile) {
+              // smooth height animation on desktop; on a 1-col mobile layout the delta
+              // is huge and stretches the background canvas, so we just snap instead.
+              grid.style.height = 'auto';
+              const endH = grid.offsetHeight;
+              grid.style.overflow = 'hidden';
+              grid.style.height = startH + 'px';
+              void grid.offsetHeight; // force reflow
+              grid.style.height = endH + 'px';
+            }
+
             // fade the matching cards back in
             requestAnimationFrame(() => {
               cards.forEach(card => { if(card.style.display !== 'none') card.classList.remove('rcard--hiding'); });
             });
-            // cleanup after height transition
+            // cleanup
             setTimeout(() => {
               grid.style.height = '';
               grid.style.overflow = '';
               animating = false;
-            }, 440);
+            }, mobile ? 280 : 440);
           }, 240);
         }
 
