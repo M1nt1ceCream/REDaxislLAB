@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="assets/favicon.png?v=1">
+    <meta name="description" content="Focused research engagements from RED AXIS — AI due diligence, market mapping, competitor benchmarking and country-risk briefs, each scoped to a single decision and delivered as a clear brief.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RED AXIS">
+    <meta property="og:title" content="Services — RED AXIS">
+    <meta property="og:description" content="Due diligence, market mapping, benchmarking and country-risk briefs — scoped to a single decision.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta name="twitter:card" content="summary">
     <title>Наши услуги — RED AXIS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=39">
+    <link rel="stylesheet" href="styles.css?v=75">
 
     <script>
         (function(){
@@ -45,6 +54,12 @@
                     <div class="lang-switch__drop" id="headerLangDropdown">
                         <div class="lang-option" data-lang="ru">Русский</div>
                         <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="zh">中文</div>
+                        <div class="lang-option" data-lang="es">Español</div>
+                        <div class="lang-option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" data-lang="it">Italiano</div>
+                        <div class="lang-option" data-lang="fr">Français</div>
+                        <div class="lang-option" data-lang="tr">Türkçe</div>
                     </div>
                 </div>
                 <div class="header__lang-divider"></div>
@@ -59,16 +74,147 @@
                 <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
                 <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
                 <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="coverage.html" class="header__link" data-i18n="nav.coverage">Покрытие</a>
+                <a href="about.html" class="header__link" data-i18n="nav.about">О нас</a>
                 <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
             </nav>
         </div>
     </header>
 
     <div class="page-header">
-        <h1 class="page-header__title" data-i18n-html="page.services.h">Наши <span class="text-accent">услуги</span></h1>
+        <span class="page-header__eyebrow" data-i18n="page.services.eyebrow">services</span>
+        <h1 class="page-header__title" data-i18n-html="page.services.h">Our <span class="text-accent">services</span></h1>
+        <p class="page-header__sub" data-i18n="page.services.sub">Focused research engagements for investors, founders and strategy teams — each scoped to a single decision and delivered as a clear, structured brief.</p>
+        <div class="services-cta-row" data-animate>
+            <a href="contacts.html" class="btn btn--primary" data-i18n="btn.discuss">Discuss your brief</a>
+            <a href="contacts.html" class="btn btn--outline" data-i18n="btn.sample">Request a sample</a>
+        </div>
     </div>
 
-<div class="section__container"><p class="section__subtitle" data-i18n="page.services.wip">Раздел находится в разработке.</p></div>
+    <!-- SERVICES GRID -->
+    <section class="services-page">
+        <div class="section__container">
+            <div class="services-grid">
+
+                <div class="service-card" data-animate>
+                    <span class="service-card__eyebrow" data-i18n="svc.1.eyebrow">For investors · VC · PE</span>
+                    <h3 class="service-card__title" data-i18n="svc.1.title">AI Startup Due Diligence</h3>
+                    <p class="service-card__when" data-i18n="svc.1.when">When you’re about to commit capital to an AI or tech company and need an independent read before you sign.</p>
+                    <span class="service-card__label" data-i18n="svc.included">What’s included</span>
+                    <ul class="service-card__list">
+                        <li data-i18n="svc.1.li1">Tech stack &amp; defensibility review</li>
+                        <li data-i18n="svc.1.li2">Founder &amp; team background</li>
+                        <li data-i18n="svc.1.li3">Competitive landscape</li>
+                        <li data-i18n="svc.1.li4">Market sizing &amp; demand signals</li>
+                    </ul>
+                    <p class="service-card__result" data-i18n-html="svc.1.result"><b>You get:</b> a clear go / no-go brief with risks and red flags surfaced.</p>
+                    <div class="service-card__foot">
+                        <span class="service-card__time" data-i18n="svc.1.time">5–10 days · Confidential</span>
+                        <a href="contacts.html" class="service-card__cta" data-i18n="btn.request">Request →</a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <span class="service-card__eyebrow" data-i18n="svc.2.eyebrow">For investors · operators</span>
+                    <h3 class="service-card__title" data-i18n="svc.2.title">Founder &amp; Market Scan</h3>
+                    <p class="service-card__when" data-i18n="svc.2.when">When you need a fast first read on a founder and their market before deciding whether to dig deeper.</p>
+                    <span class="service-card__label" data-i18n="svc.included">What’s included</span>
+                    <ul class="service-card__list">
+                        <li data-i18n="svc.2.li1">Founder track record &amp; reputation</li>
+                        <li data-i18n="svc.2.li2">Market context &amp; momentum</li>
+                        <li data-i18n="svc.2.li3">Early traction signals</li>
+                        <li data-i18n="svc.2.li4">Initial red flags</li>
+                    </ul>
+                    <p class="service-card__result" data-i18n-html="svc.2.result"><b>You get:</b> a concise scan to decide go-deeper or pass.</p>
+                    <div class="service-card__foot">
+                        <span class="service-card__time" data-i18n="svc.2.time">3–5 days</span>
+                        <a href="contacts.html" class="service-card__cta" data-i18n="btn.request">Request →</a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <span class="service-card__eyebrow" data-i18n="svc.3.eyebrow">For strategy teams · founders</span>
+                    <h3 class="service-card__title" data-i18n="svc.3.title">Competitor Benchmarking</h3>
+                    <p class="service-card__when" data-i18n="svc.3.when">When you’re setting positioning or pricing, or answering a board question about the competition.</p>
+                    <span class="service-card__label" data-i18n="svc.included">What’s included</span>
+                    <ul class="service-card__list">
+                        <li data-i18n="svc.3.li1">Player shortlist &amp; profiles</li>
+                        <li data-i18n="svc.3.li2">Feature &amp; pricing matrix</li>
+                        <li data-i18n="svc.3.li3">Strengths, gaps &amp; white space</li>
+                        <li data-i18n="svc.3.li4">Positioning map</li>
+                    </ul>
+                    <p class="service-card__result" data-i18n-html="svc.3.result"><b>You get:</b> a side-by-side benchmark across the criteria that drive your decision.</p>
+                    <div class="service-card__foot">
+                        <span class="service-card__time" data-i18n="svc.3.time">5–10 days</span>
+                        <a href="contacts.html" class="service-card__cta" data-i18n="btn.request">Request →</a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <span class="service-card__eyebrow" data-i18n="svc.4.eyebrow">For founders · investors · strategy</span>
+                    <h3 class="service-card__title" data-i18n="svc.4.title">TAM / SAM / SOM + Market Mapping</h3>
+                    <p class="service-card__when" data-i18n="svc.4.when">When you’re fundraising, planning an entry or sizing an opportunity and need defensible numbers.</p>
+                    <span class="service-card__label" data-i18n="svc.included">What’s included</span>
+                    <ul class="service-card__list">
+                        <li data-i18n="svc.4.li1">Market sizing (TAM / SAM / SOM)</li>
+                        <li data-i18n="svc.4.li2">Segmentation &amp; demand drivers</li>
+                        <li data-i18n="svc.4.li3">Player &amp; value-chain map</li>
+                        <li data-i18n="svc.4.li4">Entry angles</li>
+                    </ul>
+                    <p class="service-card__result" data-i18n-html="svc.4.result"><b>You get:</b> defensible numbers and a visual market map.</p>
+                    <div class="service-card__foot">
+                        <span class="service-card__time" data-i18n="svc.4.time">7–14 days · Deliverable</span>
+                        <a href="contacts.html" class="service-card__cta" data-i18n="btn.request">Request →</a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <span class="service-card__eyebrow" data-i18n="svc.5.eyebrow">For investors · cross-border</span>
+                    <h3 class="service-card__title" data-i18n="svc.5.title">Geopolitical / Country Risk Brief</h3>
+                    <p class="service-card__when" data-i18n="svc.5.when">When you’re investing in, sourcing from or expanding into a new or volatile market.</p>
+                    <span class="service-card__label" data-i18n="svc.included">What’s included</span>
+                    <ul class="service-card__list">
+                        <li data-i18n="svc.5.li1">Country &amp; political risk read</li>
+                        <li data-i18n="svc.5.li2">Regulatory landscape</li>
+                        <li data-i18n="svc.5.li3">Scenarios &amp; watchpoints</li>
+                        <li data-i18n="svc.5.li4">Implications for your move</li>
+                    </ul>
+                    <p class="service-card__result" data-i18n-html="svc.5.result"><b>You get:</b> a decision-ready risk memo.</p>
+                    <div class="service-card__foot">
+                        <span class="service-card__time" data-i18n="svc.5.time">3–7 days · Memo</span>
+                        <a href="contacts.html" class="service-card__cta" data-i18n="btn.request">Request →</a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <span class="service-card__eyebrow" data-i18n="svc.6.eyebrow">For any specific brief</span>
+                    <h3 class="service-card__title" data-i18n="svc.6.title">Custom Intelligence Sprint</h3>
+                    <p class="service-card__when" data-i18n="svc.6.when">When your question doesn’t fit a standard format and you need research scoped around it.</p>
+                    <span class="service-card__label" data-i18n="svc.included">What’s included</span>
+                    <ul class="service-card__list">
+                        <li data-i18n="svc.6.li1">Scoping call &amp; research plan</li>
+                        <li data-i18n="svc.6.li2">Primary &amp; secondary sources</li>
+                        <li data-i18n="svc.6.li3">Regional analyst input</li>
+                        <li data-i18n="svc.6.li4">Custom deliverable</li>
+                    </ul>
+                    <p class="service-card__result" data-i18n-html="svc.6.result"><b>You get:</b> exactly the answer you scoped — brief, dataset or report.</p>
+                    <div class="service-card__foot">
+                        <span class="service-card__time" data-i18n="svc.6.time">Scoped per project</span>
+                        <a href="contacts.html" class="service-card__cta" data-i18n="btn.request">Request →</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="services-band" data-animate>
+                <div class="services-band__text">
+                    <h3 data-i18n="svc.band.h">Not sure which fits?</h3>
+                    <p data-i18n="svc.band.p">Tell us the question you need answered — we’ll scope the right format and timeline.</p>
+                </div>
+                <a href="contacts.html" class="btn btn--primary" data-i18n="btn.discuss">Discuss your brief</a>
+            </div>
+        </div>
+    </section>
 
 <!-- FOOTER -->
     <footer class="footer">
@@ -83,9 +229,11 @@
                     <a href="index.html" data-i18n="nav.home">Главная</a>
                     <a href="services.html" data-i18n="nav.services">Наши услуги</a>
                     <a href="research.html" data-i18n="nav.research">Исследования</a>
+                    <a href="coverage.html" data-i18n="nav.coverage">Покрытие</a>
                 </div>
                 <div class="footer__col">
                     <h4 data-i18n="footer.company">Компания</h4>
+                    <a href="about.html" data-i18n="nav.about">О нас</a>
                     <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
                 </div>
             </div>
@@ -116,8 +264,8 @@
         </div>
     </div>
 
-    <script src="i18n.js?v=3"></script>
-    <script src="script.js?v=17"></script>
+    <script src="i18n.js?v=9"></script>
+    <script src="script.js?v=33"></script>
 
 </body>
 </html>

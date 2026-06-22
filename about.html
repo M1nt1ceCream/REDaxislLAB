@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru" data-page="about">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="assets/favicon.png?v=1">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RED AXIS">
+    <meta property="og:title" content="About — RED AXIS">
+    <meta property="og:description" content="An independent boutique research and intelligence firm built for high-stakes, cross-border decisions.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta name="twitter:card" content="summary">
+    <title>About — RED AXIS</title>
+    <meta name="description" content="RED AXIS is an independent boutique research and intelligence firm helping investors, founders and strategy teams make high-stakes, cross-border decisions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=75">
+
+    <script>
+        (function(){
+            var t=localStorage.getItem('theme');
+            if(t){document.documentElement.setAttribute('data-theme',t);}
+            else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){
+                document.documentElement.setAttribute('data-theme','dark');
+            }
+        })();
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109330928','ym');ym(109330928,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});</script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/109330928" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition" id="pageTransition">
+        <img src="assets/logo.png" alt="RED AXIS" class="page-transition__logo">
+    </div>
+
+<!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo.png" alt="RED AXIS" class="header__logo-img">
+            </a>
+            <div class="header__right">
+                <div class="lang-switch" id="headerLangSwitch">
+                    <button class="lang-switch__btn" id="headerLangBtn">
+                        <span id="headerLangLabel">RU</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-switch__drop" id="headerLangDropdown">
+                        <div class="lang-option" data-lang="ru">Русский</div>
+                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="zh">中文</div>
+                        <div class="lang-option" data-lang="es">Español</div>
+                        <div class="lang-option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" data-lang="it">Italiano</div>
+                        <div class="lang-option" data-lang="fr">Français</div>
+                        <div class="lang-option" data-lang="tr">Türkçe</div>
+                    </div>
+                </div>
+                <div class="header__lang-divider"></div>
+                <button class="header__burger" id="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <nav class="header__nav" id="nav">
+                <div class="nav__header">
+                    <img src="assets/logo.png" alt="RED AXIS" class="nav__logo">
+                </div>
+                <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
+                <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
+                <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="coverage.html" class="header__link" data-i18n="nav.coverage">Покрытие</a>
+                <a href="about.html" class="header__link" data-i18n="nav.about">О нас</a>
+                <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <span class="page-header__eyebrow" data-i18n="page.about.eyebrow">about</span>
+        <h1 class="page-header__title" data-i18n-html="about.title">ABOUT <span class="text-accent">RED AXIS</span></h1>
+        <p class="page-header__sub" data-i18n="about.sub">An independent research and intelligence firm, built around one idea: better decisions come from better questions, asked on the ground.</p>
+    </div>
+
+    <!-- WHO WE ARE / MISSION -->
+    <section class="about-lead-sec">
+        <div class="section__container">
+            <p class="about-lead" data-animate data-i18n="about.lead">RED AXIS is a boutique research and intelligence firm. We work with investors, founders and strategy teams who need a clear, independent read before they commit capital, enter a market or make a call that’s hard to reverse.</p>
+            <div class="about-lead__cols">
+                <p data-i18n="about.col1">We are deliberately small and senior. Every engagement is scoped around a single decision and delivered as a structured brief — not a data dump. Our job is to reduce your uncertainty, surface what actually matters, and tell you what we would watch.</p>
+                <p data-i18n="about.col2">We work across markets that are often hard to read from the outside — Turkey, China, the CIS, MENA and selected frontier economies — combining desk research with analysts who know these regions first-hand.</p>
+            </div>
+            <blockquote class="about-mission" data-animate data-i18n="about.mission">Our mission: turn complex, cross-border markets into decisions you can act on with confidence.</blockquote>
+        </div>
+    </section>
+
+    <!-- HOW WE OPERATE -->
+    <section class="about-ops">
+        <div class="section__container">
+            <div class="advantages__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="about.ops.eyebrow">how we operate</span>
+                    <h2 class="section__title" data-i18n-html="about.ops.title">THE <span class="text-accent">OPERATING MODEL</span></h2>
+                </div>
+            </div>
+            <div class="advantages__divider"></div>
+            <div class="trust__grid">
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="about.ops.1.stat">Model</span>
+                    <h3 class="trust-card__title" data-i18n="about.ops.1.title">Distributed analyst network</h3>
+                    <p class="trust-card__text" data-i18n="about.ops.1.text">A senior lead runs each project and delivers through a distributed network of regional analysts and sector specialists, matched to your brief and geography.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="about.ops.2.stat">Method</span>
+                    <h3 class="trust-card__title" data-i18n="about.ops.2.title">Standards &amp; methodology</h3>
+                    <p class="trust-card__text" data-i18n="about.ops.2.text">Primary and secondary sources, triangulated and stress-tested. We separate fact from inference and show the reasoning behind every conclusion.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="about.ops.3.stat">NDA</span>
+                    <h3 class="trust-card__title" data-i18n="about.ops.3.title">Confidentiality</h3>
+                    <p class="trust-card__text" data-i18n="about.ops.3.text">Most of our work is under NDA. We don’t disclose client names and handle sensitive material with care. NDA available on request.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="about.ops.4.stat">Independent</span>
+                    <h3 class="trust-card__title" data-i18n="about.ops.4.title">Conflict-free</h3>
+                    <p class="trust-card__text" data-i18n="about.ops.4.text">We sell research, not deals — no success fees, no positions. That keeps our read honest and our incentives aligned with yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGIONS & SECTORS -->
+    <section class="about-rs-sec">
+        <div class="section__container">
+            <div class="advantages__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="about.rs.eyebrow">coverage</span>
+                    <h2 class="section__title" data-i18n-html="about.rs.title">REGIONS &amp; <span class="text-accent">SECTORS</span></h2>
+                </div>
+            </div>
+            <div class="advantages__divider"></div>
+            <div class="about-rs">
+                <div class="about-rs__col">
+                    <span class="coverage-map__col-title" data-i18n="about.rs.regions">Regions</span>
+                    <ul class="about-rs__list">
+                        <li data-i18n="geo.turkey">Turkey</li>
+                        <li data-i18n="geo.china">China</li>
+                        <li data-i18n="geo.eeurope">Eastern Europe</li>
+                        <li data-i18n="geo.casia">Central Asia</li>
+                        <li data-i18n="geo.mena">MENA</li>
+                        <li data-i18n="geo.srilanka_frontier">Sri Lanka &amp; frontier markets</li>
+                    </ul>
+                </div>
+                <div class="about-rs__col">
+                    <span class="coverage-map__col-title" data-i18n="about.rs.sectors">Sectors</span>
+                    <div class="sector-tags">
+                        <span class="sector-tag" data-i18n="sector.ai">AI &amp; software</span>
+                        <span class="sector-tag" data-i18n="sector.fintech">Fintech, payments &amp; digital assets</span>
+                        <span class="sector-tag" data-i18n="sector.cloud">Cloud, infrastructure &amp; cybersecurity</span>
+                        <span class="sector-tag" data-i18n="sector.logistics">Logistics, trade &amp; supply chains</span>
+                        <span class="sector-tag" data-i18n="sector.agri">Agri &amp; industrial digitalization</span>
+                        <span class="sector-tag" data-i18n="sector.frontier">Frontier &amp; emerging markets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CLIENTS -->
+    <section class="about-why">
+        <div class="section__container">
+            <div class="advantages__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="about.why.eyebrow">why clients work with us</span>
+                    <h2 class="section__title" data-i18n-html="about.why.title">WHAT YOU GET <span class="text-accent">FROM US</span></h2>
+                </div>
+            </div>
+            <div class="advantages__divider"></div>
+            <div class="trust__grid">
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat">01</span>
+                    <h3 class="trust-card__title" data-i18n="about.why.1.title">An independent read</h3>
+                    <p class="trust-card__text" data-i18n="about.why.1.text">An outside, conflict-free perspective you can put in front of a board or investment committee.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat">02</span>
+                    <h3 class="trust-card__title" data-i18n="about.why.2.title">On-the-ground access</h3>
+                    <p class="trust-card__text" data-i18n="about.why.2.text">Regional analysts who actually know these markets — not desk research from afar.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat">03</span>
+                    <h3 class="trust-card__title" data-i18n="about.why.3.title">Decision-ready output</h3>
+                    <p class="trust-card__text" data-i18n="about.why.3.text">Structured briefs scoped to your decision — clear, fast and ready to act on.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat">04</span>
+                    <h3 class="trust-card__title" data-i18n="about.why.4.title">Discreet by default</h3>
+                    <p class="trust-card__text" data-i18n="about.why.4.text">An NDA-friendly workflow built for sensitive, high-stakes work.</p>
+                </div>
+            </div>
+
+            <div class="services-band" data-animate>
+                <div class="services-band__text">
+                    <h3 data-i18n="about.band.h">Have a decision coming up?</h3>
+                    <p data-i18n="about.band.p">Tell us the question you need answered — we’ll scope the right research around it.</p>
+                </div>
+                <a href="contacts.html" class="btn btn--primary" data-i18n="btn.discuss">Discuss your brief</a>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <img src="assets/logo.png" alt="RED AXIS" class="footer__logo">
+                <p class="footer__desc" data-i18n="footer.desc">IT-исследования и аналитика для бизнеса</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 data-i18n="footer.nav">Навигация</h4>
+                    <a href="index.html" data-i18n="nav.home">Главная</a>
+                    <a href="services.html" data-i18n="nav.services">Наши услуги</a>
+                    <a href="research.html" data-i18n="nav.research">Исследования</a>
+                    <a href="coverage.html" data-i18n="nav.coverage">Покрытие</a>
+                </div>
+                <div class="footer__col">
+                    <h4 data-i18n="footer.company">Компания</h4>
+                    <a href="about.html" data-i18n="nav.about">О нас</a>
+                    <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+                </div>
+            </div>
+            <div class="footer__bottom" style="display:flex; justify-content:space-between; align-items:center;">
+                <span data-i18n="footer.copy">&copy; 2026 RED AXIS. Все права защищены.</span>
+                <div class="theme-toggle-wrapper" style="margin-top:0;">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        <div class="theme-toggle__slider"></div>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner__bg"></div>
+        <div class="cookie-banner__glass">
+            <div class="cookie-banner__text">
+                <p data-i18n="cookie.text">Мы используем файлы cookie для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="btn btn--outline" id="declineCookies" data-i18n="cookie.decline">Отказаться</button>
+                <button class="btn btn--primary" id="acceptCookies" data-i18n="cookie.accept">Принять</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="i18n.js?v=9"></script>
+    <script src="script.js?v=33"></script>
+
+</body>
+</html>

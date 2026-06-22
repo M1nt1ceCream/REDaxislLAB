@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="assets/favicon.png?v=1">
+    <meta name="description" content="RED AXIS is an independent boutique research and intelligence firm — due diligence, market intelligence and country-risk analysis for investors, founders and strategy teams across Turkey, China, the CIS, MENA and frontier markets.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RED AXIS">
+    <meta property="og:title" content="RED AXIS — Boutique Research & Intelligence">
+    <meta property="og:description" content="Independent research & intelligence for high-stakes, cross-border decisions.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta name="twitter:card" content="summary">
     <title>RED AXIS — IT-исследования и аналитика</title>
     <meta name="description" content="RED AXIS — компания, занимающаяся IT-исследованиями, аналитикой рынков и технологическим консалтингом.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=39">
+    <link rel="stylesheet" href="styles.css?v=75">
     <script>
         (function(){
             var t=localStorage.getItem('theme');
@@ -46,6 +55,12 @@
                     <div class="lang-switch__drop" id="headerLangDropdown">
                         <div class="lang-option" data-lang="ru">Русский</div>
                         <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="zh">中文</div>
+                        <div class="lang-option" data-lang="es">Español</div>
+                        <div class="lang-option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" data-lang="it">Italiano</div>
+                        <div class="lang-option" data-lang="fr">Français</div>
+                        <div class="lang-option" data-lang="tr">Türkçe</div>
                     </div>
                 </div>
                 <div class="header__lang-divider"></div>
@@ -60,6 +75,8 @@
                 <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
                 <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
                 <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="coverage.html" class="header__link" data-i18n="nav.coverage">Покрытие</a>
+                <a href="about.html" class="header__link" data-i18n="nav.about">О нас</a>
                 <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
             </nav>
         </div>
@@ -68,286 +85,344 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <canvas class="hero__bg" id="heroCanvas"></canvas>
-        <div class="hero__glass">
-            <h1 class="hero__title"><span data-i18n="hero.title">Исследуем технологии.</span><span class="hero__accent" data-i18n="hero.accent">Формируем будущее.</span></h1>
-            <p class="hero__text" data-i18n="hero.text">RED AXIS — исследовательская лаборатория, которая помогает компаниям принимать стратегические решения на основе глубокой аналитики технологических рынков, трендов и инноваций. Мы превращаем данные в конкурентное преимущество.</p>
-            <div class="hero__actions">
-                <a href="#contacts" class="btn btn--primary" data-i18n="hero.btn.contact">Связаться с нами</a>
-                <a href="research.html" class="btn btn--outline" data-i18n="hero.btn.research">Наши исследования</a>
+        <div class="hero__content">
+            <div class="hero__glass hero__glass--main">
+                <h1 class="hero__title"><span data-i18n="hero.title">Исследуем технологии.</span><span class="hero__accent" data-i18n="hero.accent">Формируем будущее.</span></h1>
+                <p class="hero__text" data-i18n="hero.text">RED AXIS — исследовательская лаборатория, которая помогает компаниям принимать стратегические решения на основе глубокой аналитики технологических рынков, трендов и инноваций. Мы превращаем данные в конкурентное преимущество.</p>
+                <div class="hero__actions">
+                    <a href="#contacts" class="btn btn--primary" data-i18n="hero.btn.contact">Связаться с нами</a>
+                    <a href="#contacts" class="btn btn--outline" data-i18n="hero.btn.research">Наши исследования</a>
+                </div>
+            </div>
+            <div class="hero__side">
+                <div class="hero__glass hero__glass--card">
+                    <span class="hero__card-eyebrow" data-i18n="hero.c1.eyebrow">What we deliver</span>
+                    <h3 class="hero__card-title" data-i18n="hero.c1.title">Due Diligence Sprint</h3>
+                    <p class="hero__card-text" data-i18n="hero.c1.text">AI startup, founder and market research — scoped, researched, delivered.</p>
+                    <div class="hero__card-meta" data-i18n="hero.c1.meta">5–10 days · Confidential</div>
+                </div>
+                <div class="hero__glass hero__glass--card">
+                    <span class="hero__card-eyebrow" data-i18n="hero.c2.eyebrow">Coverage</span>
+                    <h3 class="hero__card-title" data-i18n="hero.c2.title">15+ Markets</h3>
+                    <p class="hero__card-text" data-i18n="hero.c2.text">Turkey · China · Eastern Europe · Central Asia · MENA · Sri Lanka</p>
+                    <div class="hero__card-meta" data-i18n="hero.c2.meta">NDA on request</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ADVANTAGES -->
+    <!-- WHAT WE DELIVER -->
     <section class="advantages" id="advantages">
         <div class="section__container">
             <div class="advantages__header">
                 <div class="advantages__header-inner">
-                    <span class="advantages__eyebrow" data-i18n="adv.eyebrow">философия</span>
-                    <h2 class="section__title" data-i18n-html="adv.title"><span class="text-accent">ПОЧЕМУ</span> RED <span style="font-weight: 300;">AXIS</span>?</h2>
+                    <span class="advantages__eyebrow" data-i18n="deliver.eyebrow">what we deliver</span>
                 </div>
             </div>
             <div class="advantages__divider"></div>
-            <div class="advantages__grid">
+            <div class="advantages__grid advantages__grid--two">
 
                 <div class="advantage-card" data-animate>
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+                    <div>
+                        <span class="advantage-card__eyebrow" data-i18n="deliver.1.eyebrow">For strategy teams · operators</span>
+                        <h3 class="advantage-card__title" data-i18n="deliver.1.title">Market Intelligence Report</h3>
+                        <p class="advantage-card__text" data-i18n="deliver.1.text">Market map, competitive landscape, sizing and entry angles for a target sector or geography. Structured for decisions.</p>
                     </div>
-                    <h3 class="advantage-card__title" data-i18n="adv.1.title">Глубокая экспертиза</h3>
-                    <p class="advantage-card__text" data-i18n="adv.1.text">Более 10 лет опыта в исследовании IT-рынков. Наша команда — эксперты с академическим и индустриальным бэкграундом.</p>
+                    <div class="advantage-card__timeline" data-i18n="deliver.1.time">7–14 days · Deliverable</div>
                 </div>
 
                 <div class="advantage-card" data-animate>
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    <div>
+                        <span class="advantage-card__eyebrow" data-i18n="deliver.2.eyebrow">For fund managers · cross-border</span>
+                        <h3 class="advantage-card__title" data-i18n="deliver.2.title">Geopolitical Risk Brief</h3>
+                        <p class="advantage-card__text" data-i18n="deliver.2.text">Country risk assessment, scenario analysis and key watchpoints for investment or expansion decisions in emerging markets.</p>
                     </div>
-                    <h3 class="advantage-card__title" data-i18n="adv.2.title">Data-driven подход</h3>
-                    <p class="advantage-card__text" data-i18n="adv.2.text">Каждое исследование базируется на проверенных данных и количественных метриках, а не на предположениях.</p>
+                    <div class="advantage-card__timeline" data-i18n="deliver.2.time">3–7 days · Memo</div>
                 </div>
 
-                <div class="advantage-card" data-animate>
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <h3 class="advantage-card__title" data-i18n="adv.3.title">Скорость и точность</h3>
-                    <p class="advantage-card__text" data-i18n="adv.3.text">Быстрая подготовка отчётов без потери качества. Сжатые сроки — наше конкурентное преимущество.</p>
-                </div>
+            </div>
 
-                <div class="advantage-card" data-animate>
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3 class="advantage-card__title" data-i18n="adv.4.title">Индивидуальный подход</h3>
-                    <p class="advantage-card__text" data-i18n="adv.4.text">Каждый проект уникален. Мы адаптируем методологию под конкретные задачи и отрасль клиента.</p>
-                </div>
-
-                <div class="advantage-card" data-animate>
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3 class="advantage-card__title" data-i18n="adv.5.title">Конфиденциальность</h3>
-                    <p class="advantage-card__text" data-i18n="adv.5.text">Строгие NDA и политика защиты данных. Ваши исследования и стратегии остаются только вашими.</p>
-                </div>
-
+            <div class="services-cta-row" data-animate>
+                <a href="services.html" class="btn btn--primary" data-i18n="btn.explore">Explore all services</a>
+                <a href="contacts.html" class="btn btn--outline" data-i18n="btn.sample">Request a sample</a>
             </div>
         </div>
     </section>
 
-    <!-- SPECIALISTS -->
-    <section class="specialists" id="specialists">
+    <!-- WHO WE HELP -->
+    <section class="who" id="who-we-help">
         <div class="section__container">
-            <h2 class="section__title text-accent" style="text-transform:uppercase;letter-spacing:-0.04em;" data-i18n="spec.title">НАШИ СПЕЦИАЛИСТЫ</h2>
-            <p class="section__subtitle" style="margin-bottom:24px;" data-i18n="spec.subtitle">Команда экспертов с глубоким пониманием технологий и рынков</p>
-            <div class="advantages__divider"></div>
-            <div class="carousel" id="specialistsCarousel" data-infinite="true">
-                <button class="carousel__btn carousel__btn--prev" data-dir="-1" aria-label="Назад">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-                </button>
-                <div class="carousel__track-wrapper">
-                    <div class="carousel__track" id="specialistsTrack">
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_1.jpg" alt="Михаил Романов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Михаил Романов</div>
-                                    <div class="specialist-card__role">Lead Research Analyst</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.1.edu">МГУ, Прикладная математика и информатика</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.1.text">Эксперт в области машинного обучения и оценки потенциала AI-стартапов.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_2.jpg" alt="Илья Смирнов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Илья Смирнов</div>
-                                    <div class="specialist-card__role">Senior Fintech Analyst</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.2.edu">ВШЭ, Экономика и финансы</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.2.text">Специализируется на финтех-рынках, цифровых валютах и платёжных инновациях.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_3.jpg" alt="Артем Лебедев" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Артем Лебедев</div>
-                                    <div class="specialist-card__role">Cybersecurity Expert</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.3.edu">МГТУ им. Баумана, Информационная безопасность</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.3.text">Более 10 лет опыта анализа уязвимостей и корпоративных защитных решений.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_4.jpg" alt="Виктор Ким" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Виктор Ким</div>
-                                    <div class="specialist-card__role">Cloud Architecture Analyst</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.4.edu">МФТИ, Системная архитектура</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.4.text">Оценивает рынки облачных провайдеров и стратегии SaaS-миграции.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_5.jpg" alt="Александр Иванов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Александр Иванов</div>
-                                    <div class="specialist-card__role">Senior Data Engineer</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.5.edu">СПбГУ, Программная инженерия</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.5.text">Архитектор петабайтных хранилищ данных и потоковой обработки.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_1.jpg" alt="Максим Соколов" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Максим Соколов</div>
-                                    <div class="specialist-card__role">UX Research Lead</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.6.edu">ВШЭ, Психология и дизайн</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.6.text">Анализ пользовательского поведения и проектирование сложных B2B интерфейсов.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel__slide">
-                            <div class="specialist-card">
-                                <div class="specialist-card__photo"><img src="icons/spec_2.jpg" alt="Олег Васильев" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-                                <div class="specialist-card__info">
-                                    <div class="specialist-card__name">Олег Васильев</div>
-                                    <div class="specialist-card__role">AI Strategy Consultant</div>
-                                    <div class="specialist-card__education">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 10 8-5 8 5-8 5-8-5Z"/><path d="M4 14v4l8 5 8-5v-4"/></svg>
-                                        <span data-i18n="spec.7.edu">Сколтех, Инновации и бизнес</span>
-                                    </div>
-                                    <p class="specialist-card__text" data-i18n="spec.7.text">Внедрение ИИ-решений в корпоративные процессы. Автор 10+ публикаций.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="advantages__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="who.eyebrow">who we help</span>
+                    <h2 class="section__title" data-i18n-html="who.title">BUILT FOR <span class="text-accent">DECISION-MAKERS</span></h2>
                 </div>
-                <button class="carousel__btn carousel__btn--next" data-dir="1" aria-label="Вперёд">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-                </button>
+            </div>
+            <div class="advantages__divider"></div>
+            <div class="who__grid">
+                <div class="who-card" data-animate>
+                    <span class="who-card__num">01</span>
+                    <h3 class="who-card__title" data-i18n="who.1.title">Investors &amp; VC</h3>
+                    <p class="who-card__text" data-i18n="who.1.text">VC, micro-PE and angels sizing a company, a founder or a market before committing capital.</p>
+                </div>
+                <div class="who-card" data-animate>
+                    <span class="who-card__num">02</span>
+                    <h3 class="who-card__title" data-i18n="who.2.title">Founders &amp; operators</h3>
+                    <p class="who-card__text" data-i18n="who.2.text">Teams entering a new market, launching a product or pressure-testing a thesis before they scale.</p>
+                </div>
+                <div class="who-card" data-animate>
+                    <span class="who-card__num">03</span>
+                    <h3 class="who-card__title" data-i18n="who.3.title">Strategy &amp; corp dev</h3>
+                    <p class="who-card__text" data-i18n="who.3.text">In-house strategy and M&amp;A teams that need an independent, outside read on a market or target.</p>
+                </div>
+                <div class="who-card" data-animate>
+                    <span class="who-card__num">04</span>
+                    <h3 class="who-card__title" data-i18n="who.4.title">Logistics &amp; trade</h3>
+                    <p class="who-card__text" data-i18n="who.4.text">Operators navigating cross-border supply chains, sourcing, vendors and trade routes.</p>
+                </div>
+                <div class="who-card" data-animate>
+                    <span class="who-card__num">05</span>
+                    <h3 class="who-card__title" data-i18n="who.5.title">Cross-border expansion</h3>
+                    <p class="who-card__text" data-i18n="who.5.text">Companies moving into Turkey, the CIS, MENA or frontier markets for the first time.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section class="partners" id="partners">
-        <div class="section__container" style="padding-top:0;padding-bottom:0;">
-            <h2 class="section__title" style="text-transform:uppercase;letter-spacing:-0.04em;text-align:center;" data-i18n-html="partners.title">НАМ <span class="text-accent">ДОВЕРЯЮТ</span></h2>
-            <div class="advantages__divider"></div>
-        </div>
-        <div class="partners__marquee">
-            <div class="partners__marquee-fade partners__marquee-fade--left"></div>
-            <div class="partners__marquee-fade partners__marquee-fade--right"></div>
-            <div class="partners__track partners__track--right">
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/3m.png" alt="3M"></div>
-                    <div class="partner-card glass-card"><img src="иконки/apple.png" alt="Apple"></div>
-                    <div class="partner-card glass-card"><img src="иконки/burger-king.png" alt="Burger King"></div>
-                    <div class="partner-card glass-card"><img src="иконки/fedex.png" alt="FedEx"></div>
-                    <div class="partner-card glass-card"><img src="иконки/huawei.png" alt="Huawei"></div>
-                    <div class="partner-card glass-card"><img src="иконки/ibm.png" alt="IBM"></div>
-                    <div class="partner-card glass-card"><img src="иконки/instagram.png" alt="Instagram"></div>
-                    <div class="partner-card glass-card"><img src="иконки/mcdonalds.png" alt="McDonalds"></div>
-                </div>
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/3m.png" alt="3M"></div>
-                    <div class="partner-card glass-card"><img src="иконки/apple.png" alt="Apple"></div>
-                    <div class="partner-card glass-card"><img src="иконки/burger-king.png" alt="Burger King"></div>
-                    <div class="partner-card glass-card"><img src="иконки/fedex.png" alt="FedEx"></div>
-                    <div class="partner-card glass-card"><img src="иконки/huawei.png" alt="Huawei"></div>
-                    <div class="partner-card glass-card"><img src="иконки/ibm.png" alt="IBM"></div>
-                    <div class="partner-card glass-card"><img src="иконки/instagram.png" alt="Instagram"></div>
-                    <div class="partner-card glass-card"><img src="иконки/mcdonalds.png" alt="McDonalds"></div>
-                </div>
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/3m.png" alt="3M"></div>
-                    <div class="partner-card glass-card"><img src="иконки/apple.png" alt="Apple"></div>
-                    <div class="partner-card glass-card"><img src="иконки/burger-king.png" alt="Burger King"></div>
-                    <div class="partner-card glass-card"><img src="иконки/fedex.png" alt="FedEx"></div>
-                    <div class="partner-card glass-card"><img src="иконки/huawei.png" alt="Huawei"></div>
-                    <div class="partner-card glass-card"><img src="иконки/ibm.png" alt="IBM"></div>
-                    <div class="partner-card glass-card"><img src="иконки/instagram.png" alt="Instagram"></div>
-                    <div class="partner-card glass-card"><img src="иконки/mcdonalds.png" alt="McDonalds"></div>
-                </div>
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/3m.png" alt="3M"></div>
-                    <div class="partner-card glass-card"><img src="иконки/apple.png" alt="Apple"></div>
-                    <div class="partner-card glass-card"><img src="иконки/burger-king.png" alt="Burger King"></div>
-                    <div class="partner-card glass-card"><img src="иконки/fedex.png" alt="FedEx"></div>
-                    <div class="partner-card glass-card"><img src="иконки/huawei.png" alt="Huawei"></div>
-                    <div class="partner-card glass-card"><img src="иконки/ibm.png" alt="IBM"></div>
-                    <div class="partner-card glass-card"><img src="иконки/instagram.png" alt="Instagram"></div>
-                    <div class="partner-card glass-card"><img src="иконки/mcdonalds.png" alt="McDonalds"></div>
+    <!-- HOW WE WORK -->
+    <section class="how-we-work" id="how-we-work">
+        <div class="how-we-work__inner">
+            <div class="hww__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="how.eyebrow">process</span>
+                    <h2 class="section__title" data-i18n-html="how.title">HOW WE <span class="text-accent">WORK</span></h2>
                 </div>
             </div>
-            <div class="partners__track partners__track--left">
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/netflix.png" alt="Netflix"></div>
-                    <div class="partner-card glass-card"><img src="иконки/sony.png" alt="Sony"></div>
-                    <div class="partner-card glass-card"><img src="иконки/tik-tok.png" alt="TikTok"></div>
-                    <div class="partner-card glass-card"><img src="иконки/uber.png" alt="Uber"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unilever.png" alt="Unilever"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unsplash.png" alt="Unsplash"></div>
-                    <div class="partner-card glass-card"><img src="иконки/vk.png" alt="VK"></div>
+            <div class="hww__steps">
+                <svg class="hww__line-svg" id="hwwLineSvg" aria-hidden="true">
+                    <path class="hww__line-path" id="hwwLinePath" d=""/>
+                </svg>
+
+                <div class="hww__step hww__step--left">
+                    <div class="hww__step-num-wrap">
+                        <div class="hww__glow"></div>
+                        <span class="hww__num">01</span>
+                    </div>
+                    <div class="hww__step-body">
+                        <h3 class="hww__step-title" data-i18n="how.1.title">Scope</h3>
+                        <p class="hww__step-text" data-i18n="how.1.text">We define the brief together — research question, target markets, scope and deliverable format. No guesswork, no wasted time.</p>
+                    </div>
                 </div>
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/netflix.png" alt="Netflix"></div>
-                    <div class="partner-card glass-card"><img src="иконки/sony.png" alt="Sony"></div>
-                    <div class="partner-card glass-card"><img src="иконки/tik-tok.png" alt="TikTok"></div>
-                    <div class="partner-card glass-card"><img src="иконки/uber.png" alt="Uber"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unilever.png" alt="Unilever"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unsplash.png" alt="Unsplash"></div>
-                    <div class="partner-card glass-card"><img src="иконки/vk.png" alt="VK"></div>
+
+                <div class="hww__step hww__step--right">
+                    <div class="hww__step-num-wrap">
+                        <div class="hww__glow"></div>
+                        <span class="hww__num">02</span>
+                    </div>
+                    <div class="hww__step-body">
+                        <h3 class="hww__step-title" data-i18n="how.2.title">Research</h3>
+                        <p class="hww__step-text" data-i18n="how.2.text">A distributed network of regional analysts pulls primary and secondary data, mapped precisely to your question and geography.</p>
+                    </div>
                 </div>
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/netflix.png" alt="Netflix"></div>
-                    <div class="partner-card glass-card"><img src="иконки/sony.png" alt="Sony"></div>
-                    <div class="partner-card glass-card"><img src="иконки/tik-tok.png" alt="TikTok"></div>
-                    <div class="partner-card glass-card"><img src="иконки/uber.png" alt="Uber"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unilever.png" alt="Unilever"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unsplash.png" alt="Unsplash"></div>
-                    <div class="partner-card glass-card"><img src="иконки/vk.png" alt="VK"></div>
+
+                <div class="hww__step hww__step--left">
+                    <div class="hww__step-num-wrap">
+                        <div class="hww__glow"></div>
+                        <span class="hww__num">03</span>
+                    </div>
+                    <div class="hww__step-body">
+                        <h3 class="hww__step-title" data-i18n="how.3.title">Analyst Review</h3>
+                        <p class="hww__step-text" data-i18n="how.3.text">Findings are cross-checked, stress-tested and structured into a clear analytical framework before any writing begins.</p>
+                    </div>
                 </div>
-                <div class="partners__list">
-                    <div class="partner-card glass-card"><img src="иконки/netflix.png" alt="Netflix"></div>
-                    <div class="partner-card glass-card"><img src="иконки/sony.png" alt="Sony"></div>
-                    <div class="partner-card glass-card"><img src="иконки/tik-tok.png" alt="TikTok"></div>
-                    <div class="partner-card glass-card"><img src="иконки/uber.png" alt="Uber"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unilever.png" alt="Unilever"></div>
-                    <div class="partner-card glass-card"><img src="иконки/unsplash.png" alt="Unsplash"></div>
-                    <div class="partner-card glass-card"><img src="иконки/vk.png" alt="VK"></div>
+
+                <div class="hww__step hww__step--right">
+                    <div class="hww__step-num-wrap">
+                        <div class="hww__glow"></div>
+                        <span class="hww__num">04</span>
+                    </div>
+                    <div class="hww__step-body">
+                        <h3 class="hww__step-title" data-i18n="how.4.title">Delivery</h3>
+                        <p class="hww__step-text" data-i18n="how.4.text">You receive a finished brief, memo or report — structured, clear and ready to present, share or act on. Typically 5–14 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAMPLE OUTPUTS -->
+    <section class="samples" id="sample-outputs">
+        <div class="section__container">
+            <div class="advantages__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="samples.eyebrow">sample outputs</span>
+                    <h2 class="section__title" data-i18n-html="samples.title">WHAT YOU <span class="text-accent">RECEIVE</span></h2>
+                </div>
+            </div>
+            <div class="advantages__divider"></div>
+            <div class="samples__grid">
+                <div class="sample-card" data-animate>
+                    <div class="sample-mock sample-mock--map" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="sample-card__body">
+                        <span class="sample-card__tag" data-i18n="samples.1.tag">Market Map</span>
+                        <p class="sample-card__text" data-i18n="samples.1.text">Players, segments and white space on a single visual — who matters and where the gaps are.</p>
+                    </div>
+                </div>
+                <div class="sample-card" data-animate>
+                    <div class="sample-mock sample-mock--bars" aria-hidden="true">
+                        <i style="--h:45%"></i><i style="--h:72%"></i><i style="--h:58%"></i><i style="--h:90%"></i><i style="--h:38%"></i>
+                    </div>
+                    <div class="sample-card__body">
+                        <span class="sample-card__tag" data-i18n="samples.2.tag">Benchmark Table</span>
+                        <p class="sample-card__text" data-i18n="samples.2.text">Side-by-side comparison of vendors or targets across the criteria that drive your decision.</p>
+                    </div>
+                </div>
+                <div class="sample-card" data-animate>
+                    <div class="sample-mock sample-mock--lines" aria-hidden="true">
+                        <b></b><i></i><i></i><i style="width:68%"></i>
+                    </div>
+                    <div class="sample-card__body">
+                        <span class="sample-card__tag" data-i18n="samples.3.tag">Geopolitical Memo</span>
+                        <p class="sample-card__text" data-i18n="samples.3.text">Concise country-risk read: scenarios, watchpoints and what they mean for your move.</p>
+                    </div>
+                </div>
+                <div class="sample-card" data-animate>
+                    <div class="sample-mock sample-mock--lines" aria-hidden="true">
+                        <b></b><i></i><i></i><i></i><i style="width:52%"></i>
+                    </div>
+                    <div class="sample-card__body">
+                        <span class="sample-card__tag" data-i18n="samples.4.tag">Strategic Brief</span>
+                        <p class="sample-card__text" data-i18n="samples.4.text">A decision-ready document — findings, implications and a clear recommendation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVERAGE MAP -->
+    <section class="coverage-map" id="coverage-map">
+        <div class="coverage-map__inner">
+        <div class="coverage-map__header">
+            <div class="advantages__header-inner">
+                <span class="advantages__eyebrow" data-i18n="covmap.eyebrow">our coverage</span>
+                <h2 class="section__title" data-i18n-html="covmap.title">WHERE WE <span class="text-accent">OPERATE</span></h2>
+            </div>
+        </div>
+        <div class="coverage-map__wrap">
+            <img src="assets/world.svg" class="coverage-map__img" alt="World coverage map" aria-hidden="true">
+            <div class="map-marker" style="left:55.09%;top:50.7%">
+                <div class="map-marker__dot"></div>
+                <span class="map-marker__label" data-i18n="geo.turkey">Turkey</span>
+            </div>
+            <div class="map-marker" style="left:79.29%;top:51.2%">
+                <div class="map-marker__dot"></div>
+                <span class="map-marker__label" data-i18n="geo.china">China</span>
+            </div>
+            <div class="map-marker" style="left:52.87%;top:43.9%">
+                <div class="map-marker__dot"></div>
+                <span class="map-marker__label" data-i18n="geo.eeurope_s">E. Europe</span>
+            </div>
+            <div class="map-marker" style="left:68.44%;top:49.5%">
+                <div class="map-marker__dot"></div>
+                <span class="map-marker__label" data-i18n="geo.casia">Central Asia</span>
+            </div>
+            <div class="map-marker" style="left:60.10%;top:58.7%">
+                <div class="map-marker__dot"></div>
+                <span class="map-marker__label" data-i18n="geo.mena">MENA</span>
+            </div>
+            <div class="map-marker" style="left:69.27%;top:66.6%">
+                <div class="map-marker__dot"></div>
+                <span class="map-marker__label" data-i18n="geo.srilanka">Sri Lanka</span>
+            </div>
+        </div>
+        <div class="coverage-map__divider"></div>
+        <div class="coverage-map__countries">
+            <div class="coverage-map__col" data-animate>
+                <span class="coverage-map__col-title" data-i18n="geo.eeurope">Eastern Europe</span>
+                <ul>
+                    <li data-i18n="geo.poland">Poland</li>
+                    <li data-i18n="geo.romania">Romania</li>
+                    <li data-i18n="geo.ukraine">Ukraine</li>
+                    <li data-i18n="geo.czech">Czech Republic</li>
+                </ul>
+            </div>
+            <div class="coverage-map__col" data-animate>
+                <span class="coverage-map__col-title" data-i18n="covmap.col2">Central Asia</span>
+                <ul>
+                    <li data-i18n="geo.kazakhstan">Kazakhstan</li>
+                    <li data-i18n="geo.uzbekistan">Uzbekistan</li>
+                    <li data-i18n="geo.kyrgyzstan">Kyrgyzstan</li>
+                    <li data-i18n="geo.azerbaijan">Azerbaijan</li>
+                </ul>
+            </div>
+            <div class="coverage-map__col" data-animate>
+                <span class="coverage-map__col-title" data-i18n="covmap.col3">Turkey & MENA</span>
+                <ul>
+                    <li data-i18n="geo.turkey">Turkey</li>
+                    <li data-i18n="geo.uae">UAE</li>
+                    <li data-i18n="geo.saudi">Saudi Arabia</li>
+                    <li data-i18n="geo.egypt">Egypt</li>
+                </ul>
+            </div>
+            <div class="coverage-map__col" data-animate>
+                <span class="coverage-map__col-title" data-i18n="covmap.col4">Asia Pacific</span>
+                <ul>
+                    <li data-i18n="geo.china">China</li>
+                    <li data-i18n="geo.srilanka">Sri Lanka</li>
+                    <li data-i18n="geo.india">India</li>
+                    <li data-i18n="geo.vietnam">Vietnam</li>
+                </ul>
+            </div>
+        </div>
+        <div class="coverage-map__divider"></div>
+        <div class="coverage-map__sectors">
+            <span class="coverage-map__col-title" data-i18n="covmap.sectors">Sectors we cover</span>
+            <div class="sector-tags">
+                <span class="sector-tag" data-i18n="sector.ai">AI &amp; software</span>
+                <span class="sector-tag" data-i18n="sector.fintech">Fintech, payments &amp; digital assets</span>
+                <span class="sector-tag" data-i18n="sector.cloud">Cloud, infrastructure &amp; cybersecurity</span>
+                <span class="sector-tag" data-i18n="sector.logistics">Logistics, trade &amp; supply chains</span>
+                <span class="sector-tag" data-i18n="sector.agri">Agri &amp; industrial digitalization</span>
+                <span class="sector-tag" data-i18n="sector.frontier">Frontier &amp; emerging markets</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- TRUST LAYER -->
+    <section class="trust" id="trust">
+        <div class="section__container">
+            <div class="advantages__header">
+                <div class="advantages__header-inner">
+                    <span class="advantages__eyebrow" data-i18n="trust.eyebrow">why clients work with us</span>
+                    <h2 class="section__title" data-i18n-html="trust.title">A QUIET, <span class="text-accent">SENIOR PARTNER</span></h2>
+                </div>
+            </div>
+            <div class="advantages__divider"></div>
+            <div class="trust__grid">
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="trust.1.stat">Confidential</span>
+                    <h3 class="trust-card__title" data-i18n="trust.1.title">Selected confidential mandates</h3>
+                    <p class="trust-card__text" data-i18n="trust.1.text">Most of our work is under NDA — we don’t publish client names. References are shared privately on request.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="trust.2.stat">15+ markets</span>
+                    <h3 class="trust-card__title" data-i18n="trust.2.title">Research coverage</h3>
+                    <p class="trust-card__text" data-i18n="trust.2.text">Primary and secondary research across Turkey, China, Eastern Europe, Central Asia, MENA and frontier markets.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="trust.3.stat">On the ground</span>
+                    <h3 class="trust-card__title" data-i18n="trust.3.title">Regional expert network</h3>
+                    <p class="trust-card__text" data-i18n="trust.3.text">A distributed network of local analysts and sector specialists, matched to each brief and geography.</p>
+                </div>
+                <div class="trust-card" data-animate>
+                    <span class="trust-card__stat" data-i18n="trust.4.stat">NDA-friendly</span>
+                    <h3 class="trust-card__title" data-i18n="trust.4.title">Discreet workflow</h3>
+                    <p class="trust-card__text" data-i18n="trust.4.text">Clear scope, secure handling of materials and structured delivery — built for sensitive, high-stakes work.</p>
                 </div>
             </div>
         </div>
@@ -359,35 +434,48 @@
         <div class="contacts__fade contacts__fade--left"></div>
         <div class="contacts__fade contacts__fade--right"></div>
         <div class="contacts__inner">
-            <div class="contacts__info">
+            <div class="contacts__info" data-animate>
                 <h2 class="contacts__title" data-i18n="contacts.h">Свяжитесь с нами</h2>
                 <p class="contacts__text" data-i18n="contacts.p">Готовы обсудить ваш проект или задать вопрос? Мы всегда на связи.</p>
                 <div class="contacts__details">
-                    <a href="mailto:info@redshiftlab.ru" class="contacts__item">
+                    <a href="mailto:hello@redaxis.co" class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        info@redshiftlab.ru
+                        hello@redaxis.co
                     </a>
-                    <a href="tel:+78001234567" class="contacts__item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        +7 (800) 123-45-67
-                    </a>
+                    <div class="contacts__item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span data-i18n="contacts.reply">Reply within 1 business day</span>
+                    </div>
+                    <div class="contacts__item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span data-i18n="contacts.nda">NDA on request</span>
+                    </div>
                     <div class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <span data-i18n="contacts.location">Москва, Россия</span>
                     </div>
                 </div>
             </div>
-            <form class="contacts__form glass-card" id="contactForm">
+            <form class="contacts__form glass-card" data-animate id="contactForm">
                 <div class="form__group">
-                    <input type="text" id="formName" placeholder="Ваше имя" data-i18n-ph="form.name" required>
+                    <input type="text" id="formName" placeholder="Your name" data-i18n-ph="form.name" required>
                 </div>
                 <div class="form__group">
-                    <input type="email" id="formEmail" placeholder="Email" required>
+                    <input type="email" id="formEmail" placeholder="Email" data-i18n-ph="form.email" required>
                 </div>
                 <div class="form__group">
-                    <textarea id="formMessage" placeholder="Сообщение" data-i18n-ph="form.message" rows="4" required></textarea>
+                    <select id="formType" class="form__select" required>
+                        <option value="" disabled selected data-i18n="form.type">Inquiry type</option>
+                        <option value="new-business" data-i18n="form.type.new">New business</option>
+                        <option value="partnerships" data-i18n="form.type.partner">Partnerships</option>
+                        <option value="general" data-i18n="form.type.general">General inquiry</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Отправить</button>
+                <div class="form__group">
+                    <textarea id="formMessage" placeholder="Tell us what you need to know" data-i18n-ph="form.message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Send</button>
+                <p class="contacts__form-note" data-i18n="contacts.formnote">We’ll reply within one business day. NDA available on request.</p>
             </form>
         </div>
     </section>
@@ -405,6 +493,8 @@
                     <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
                     <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
                     <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                    <a href="coverage.html" class="header__link" data-i18n="nav.coverage">Покрытие</a>
+                    <a href="about.html" class="header__link" data-i18n="nav.about">О нас</a>
                     <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
                 </div>
             </div>
@@ -435,7 +525,7 @@
         </div>
     </div>
 
-    <script src="i18n.js?v=3"></script>
-    <script src="script.js?v=17"></script>
+    <script src="i18n.js?v=9"></script>
+    <script src="script.js?v=33"></script>
 </body>
 </html>

@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="assets/favicon.png?v=1">
+    <meta name="description" content="Discuss your brief with RED AXIS. We reply within one business day with scope, timeline and a relevant work sample. NDA on request.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RED AXIS">
+    <meta property="og:title" content="Contact — RED AXIS">
+    <meta property="og:description" content="Tell us the question you need answered — reply within one business day. NDA on request.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta name="twitter:card" content="summary">
     <title>Контакты — RED AXIS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=39">
+    <link rel="stylesheet" href="styles.css?v=75">
 
     <script>
         (function(){
@@ -45,6 +54,12 @@
                     <div class="lang-switch__drop" id="headerLangDropdown">
                         <div class="lang-option" data-lang="ru">Русский</div>
                         <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="zh">中文</div>
+                        <div class="lang-option" data-lang="es">Español</div>
+                        <div class="lang-option" data-lang="de">Deutsch</div>
+                        <div class="lang-option" data-lang="it">Italiano</div>
+                        <div class="lang-option" data-lang="fr">Français</div>
+                        <div class="lang-option" data-lang="tr">Türkçe</div>
                     </div>
                 </div>
                 <div class="header__lang-divider"></div>
@@ -59,85 +74,74 @@
                 <a href="index.html" class="header__link" data-i18n="nav.home">Главная</a>
                 <a href="services.html" class="header__link" data-i18n="nav.services">Наши услуги</a>
                 <a href="research.html" class="header__link" data-i18n="nav.research">Исследования</a>
+                <a href="coverage.html" class="header__link" data-i18n="nav.coverage">Покрытие</a>
+                <a href="about.html" class="header__link" data-i18n="nav.about">О нас</a>
                 <a href="contacts.html" class="header__link" data-i18n="nav.contacts">Контакты</a>
             </nav>
         </div>
     </header>
 
     <!-- CONTACTS -->
-    <section class="contacts" id="contacts" style="padding-top: 0;">
-        <canvas class="contacts__bg" id="contactsCanvas" style="mask-image: linear-gradient(to bottom, transparent 0%, transparent 180px, black 250px); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 180px, black 250px);"></canvas>
-        <div class="contacts__fade contacts__fade--left"></div>
-        <div class="contacts__fade contacts__fade--right"></div>
+    <div class="page-header">
+        <span class="page-header__eyebrow" data-i18n="page.contacts.eyebrow">contact</span>
+        <h1 class="page-header__title" data-i18n-html="page.contacts.h">Let’s discuss your <span class="text-accent">brief</span></h1>
+        <p class="page-header__sub" data-i18n="page.contacts.sub">Tell us the question you need answered. We reply within one business day with scope, timeline and a relevant work sample. NDA on request.</p>
+    </div>
 
-        <div class="page-header" style="background: transparent; padding-top: 100px; padding-bottom: 80px;">
-            <h1 class="page-header__title" data-i18n-html="page.contacts.h">Контактная <span class="text-accent">информация</span></h1>
-        </div>
+    <section class="contacts" id="contacts">
+        <canvas class="contacts__bg" id="contactsCanvas"></canvas>
 
-        <!-- NEW GLASS BLOCK -->
-        <div class="contacts__inner" style="margin-bottom: 40px; display: flex; flex-direction: row; gap: 64px; align-items: stretch; min-height: 400px; padding: 32px; max-width: 1452px;">
-            <!-- Map -->
-            <div style="flex: 1; border-radius: 20px; overflow: hidden; position: relative; min-height: 350px; background: #fff; box-shadow: 0 12px 40px rgba(0,0,0,0.06);">
-                <div id="office-map" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
-            </div>
-
-            <!-- Office Info -->
-            <div class="contacts__info" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: left; padding: 24px 0;">
-                <h2 class="contacts__title" data-i18n="contacts.office.h">Наш офис</h2>
-                <p class="contacts__text" style="max-width: 100%;" data-i18n="contacts.office.p">Мы всегда рады обсудить новые проекты и идеи. Заглядывайте к нам на чашечку кофе в сердце деловой Москвы.</p>
-
-                <div class="contacts__details" style="margin-top: 16px;">
-                    <div class="contacts__item" style="align-items: flex-start;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-top: 4px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        <div>
-                            <strong style="color: var(--text);" data-i18n="contacts.addr.label">Адрес:</strong><br>
-                            <span data-i18n="contacts.addr">г. Москва, Пресненская наб., 12</span><br>
-                            <span style="font-size: 0.85em; color: var(--text-dim); opacity: 0.8;" data-i18n="contacts.addr.sub">ММДЦ «Москва-Сити», Башня Федерация</span>
-                        </div>
-                    </div>
-                    <div class="contacts__item" style="align-items: flex-start; margin-top: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-top: 4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        <div>
-                            <strong style="color: var(--text);" data-i18n="contacts.hours.label">Режим работы:</strong><br>
-                            <span data-i18n="contacts.hours">Пн – Пт: 10:00 – 19:00</span><br>
-                            <span style="font-size: 0.85em; color: var(--text-dim); opacity: 0.8;" data-i18n="contacts.hours.sub">Сб, Вс: выходные дни</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ORIGINAL CONTACT BLOCK -->
         <div class="contacts__inner">
-            <div class="contacts__info">
-                <h2 class="contacts__title" data-i18n="contacts.h">Свяжитесь с нами</h2>
-                <p class="contacts__text" data-i18n="contacts.p">Готовы обсудить ваш проект или задать вопрос? Мы всегда на связи.</p>
+            <div class="contacts__info" data-animate>
+                <h2 class="contacts__title" data-i18n="contacts.h">Get in touch</h2>
+                <p class="contacts__text" data-i18n="contacts.p">Whether it’s a deal you’re diligencing, a market you’re entering or a question that doesn’t fit a template — start here.</p>
                 <div class="contacts__details">
-                    <a href="mailto:info@redshiftlab.ru" class="contacts__item">
+                    <a href="mailto:hello@redaxis.co" class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        info@redshiftlab.ru
+                        hello@redaxis.co
                     </a>
-                    <a href="tel:+78001234567" class="contacts__item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        +7 (800) 123-45-67
-                    </a>
+                    <div class="contacts__item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span data-i18n="contacts.reply">Reply within 1 business day</span>
+                    </div>
+                    <div class="contacts__item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span data-i18n="contacts.nda">NDA on request</span>
+                    </div>
                     <div class="contacts__item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <span data-i18n="contacts.location">Москва, Россия</span>
                     </div>
+                    <a href="https://t.me/redaxis" class="contacts__item" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        Telegram
+                    </a>
+                    <a href="https://www.linkedin.com/company/redaxis" class="contacts__item" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
             </div>
-            <form class="contacts__form glass-card" id="contactForm">
+            <form class="contacts__form glass-card" data-animate id="contactForm">
                 <div class="form__group">
-                    <input type="text" id="formName" data-i18n-ph="form.name" placeholder="Ваше имя" required>
+                    <input type="text" id="formName" data-i18n-ph="form.name" placeholder="Your name" required>
                 </div>
                 <div class="form__group">
                     <input type="email" id="formEmail" data-i18n-ph="form.email" placeholder="Email" required>
                 </div>
                 <div class="form__group">
-                    <textarea id="formMessage" data-i18n-ph="form.message" placeholder="Сообщение" rows="4" required></textarea>
+                    <select id="formType" class="form__select" required>
+                        <option value="" disabled selected data-i18n="form.type">Inquiry type</option>
+                        <option value="new-business" data-i18n="form.type.new">New business</option>
+                        <option value="partnerships" data-i18n="form.type.partner">Partnerships</option>
+                        <option value="general" data-i18n="form.type.general">General inquiry</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Отправить</button>
+                <div class="form__group">
+                    <textarea id="formMessage" data-i18n-ph="form.message" placeholder="Tell us what you need to know" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Send</button>
+                <p class="contacts__form-note" data-i18n="contacts.formnote">We’ll reply within one business day. NDA available on request.</p>
             </form>
         </div>
     </section>
@@ -155,9 +159,11 @@
                     <a href="index.html" data-i18n="nav.home">Главная</a>
                     <a href="services.html" data-i18n="nav.services">Наши услуги</a>
                     <a href="research.html" data-i18n="nav.research">Исследования</a>
+                    <a href="coverage.html" data-i18n="nav.coverage">Покрытие</a>
                 </div>
                 <div class="footer__col">
                     <h4 data-i18n="footer.company">Компания</h4>
+                    <a href="about.html" data-i18n="nav.about">О нас</a>
                     <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
                 </div>
             </div>
@@ -188,26 +194,8 @@
         </div>
     </div>
 
-    <script src="i18n.js?v=3"></script>
-    <script src="script.js?v=17"></script>
-
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script>
-        ymaps.ready(function () {
-            var myMap = new ymaps.Map('office-map', {
-                center: [55.749511, 37.537083],
-                zoom: 16,
-                controls: ['zoomControl', 'fullscreenControl']
-            });
-            var myPlacemark = new ymaps.Placemark([55.749511, 37.537083], {
-                hintContent: 'RED AXIS',
-                balloonContent: 'Главный офис RED AXIS'
-            }, {
-                preset: 'islands#redDotIcon'
-            });
-            myMap.geoObjects.add(myPlacemark);
-        });
-    </script>
+    <script src="i18n.js?v=9"></script>
+    <script src="script.js?v=33"></script>
 
 </body>
 </html>
