@@ -481,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.researchResizeTimeout = setTimeout(resize, 100);
     });
     resize();
+    window.researchCanvasResize = resize;   // let the filter resize the bg immediately
 
     function step() {
       if (!width || !height) { requestAnimationFrame(step); return; }
